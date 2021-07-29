@@ -1,0 +1,33 @@
+using Bolt;
+using UnityEngine;
+using System;
+
+public class EventListener : Bolt.GlobalEventListener
+{
+    [SerializeField] private Senkranizasyon s;
+    [SerializeField] private ÖlümListesi Öl;
+    private void Awake()
+    {
+        Öl = FindObjectOfType<ÖlümListesi>();
+    }
+    public override void OnEvent(ProjectileDamage evnt)
+    {
+        if (evnt.EffectedID == s.state.ID && !s.spawnProtection)
+        {
+            s.Vurul(evnt.Rot * evnt.Damage);
+            s.IDEffecter = evnt.EffectiveID;
+            s.NickEffecter = evnt.EffectiveNick;
+        }
+    }
+    public override void OnEvent(Died evnt)
+    {
+        if (evnt.EffectiveID == s.state.ID)
+        {
+            Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, "Normal Silah");
+        }
+        else
+        {
+            Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, "Normal Silah");
+        }
+    }
+}

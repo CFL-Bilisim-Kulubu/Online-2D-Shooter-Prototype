@@ -1,0 +1,216 @@
+{
+    "name": "sj",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "f0d5c37f-0792-4255-95bd-d6fa8aaf43ad",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "0fb14c6c-046d-4fe0-a525-6697cbcaef06",
+                    "expectedControlType": "Axis",
+                    "processors": "AxisDeadzone(max=1)",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "ab1582f5-16b3-45cf-9e91-97fe77ad434e",
+                    "expectedControlType": "Button",
+                    "processors": "AxisDeadzone(max=1)",
+                    "interactions": ""
+                },
+                {
+                    "name": "MouseAim",
+                    "type": "Value",
+                    "id": "784eec38-312a-410c-8040-69e750341a44",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "GamepadAim",
+                    "type": "Value",
+                    "id": "df7988af-2022-406a-80ef-dedc0a9bcb79",
+                    "expectedControlType": "Vector2",
+                    "processors": "StickDeadzone(max=0.925)",
+                    "interactions": ""
+                },
+                {
+                    "name": "Shoot1",
+                    "type": "Button",
+                    "id": "cc633c12-9484-4793-97bb-067093638d9f",
+                    "expectedControlType": "Button",
+                    "processors": "AxisDeadzone(max=1)",
+                    "interactions": ""
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "05e3f58e-554c-45f8-aec3-032c16dd8298",
+                    "expectedControlType": "Button",
+                    "processors": "AxisDeadzone(max=1)",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a77335c3-2cb4-4f1c-a234-60f3a2e15493",
+                    "path": "<Gamepad>/leftStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Klavye",
+                    "id": "f86a373d-f89a-4b2e-87c2-b46fcc29f09c",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "af220849-d41c-468b-8bc9-76ef81235c37",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "72c5b8fa-d11c-480c-93d0-912693ebe2a0",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "916c2cec-ca99-49d0-b329-c1fc3f98508f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f03e027-35c1-4509-bc32-2d55179ffec3",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "375aa8db-309c-4739-9794-8b5653cbfaf7",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4dc23155-2667-4c98-b829-8889191aa8fa",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "AxisDeadzone(min=0.5)",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b3084a1-9d44-430c-8807-cce6b1eafcc0",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cab0717e-dff1-4377-b39a-7cf733c183df",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50bcb4f8-bacf-41d0-8f80-e205d4facba6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c0c8159-b331-410f-b609-e515b36ddc46",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GamepadAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83be466e-9d2c-40fa-ab91-cb36ea343f5f",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "369874ee-4ebb-4eef-954f-47e9d657c8f3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
