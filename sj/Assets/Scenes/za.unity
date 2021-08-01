@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5177.826, g: 3225.6367, b: 2311.625, a: 1}
+  m_IndirectSpecularColor: {r: 5126.254, g: 3220.1836, b: 2366.457, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -781,6 +781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "yaz\u0131": {fileID: 1504476297743656695, guid: 0d5a985ab46734f4e826d256cfde14c3, type: 3}
   "yaz\u0131Parent": {fileID: 1610973735}
+  sure: 6
 --- !u!1 &125401687
 GameObject:
   m_ObjectHideFlags: 0
@@ -8202,8 +8203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 350, y: 125}
-  m_SizeDelta: {x: 700, y: 250}
+  m_AnchoredPosition: {x: 350, y: 300}
+  m_SizeDelta: {x: 700, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610973737
 MonoBehaviour:

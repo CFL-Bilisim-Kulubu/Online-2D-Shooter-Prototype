@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiz: 0.5
-  hasar: 550
+  hasar: 500
   yokolmaSuresi: 2
   t: {fileID: 1747043412135745476}
   s: {fileID: 0}

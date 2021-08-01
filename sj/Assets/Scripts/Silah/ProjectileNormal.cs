@@ -35,8 +35,9 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
     {
         if (entity.IsOwner)
         {
-            BoltEntity e = null;
-            e = other.GetComponent<BoltEntity>();
+            Senkranizasyon e = null;
+            e = other.GetComponent<Senkranizasyon>();
+            
             if(e != null)
             {
                send(e);
@@ -44,16 +45,16 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
             entity.DestroyDelayed(0f);
         } 
     }
-    public void send(BoltEntity e)
+    public void send(Senkranizasyon e)
     {
         ProjectileDamage p = ProjectileDamage.Create();
         p.Damage = hasar;
         p.Rot = t.right;
-        
-        p.EffectedID = e.GetState<IMain>().ID;
+
+        p.EffectedID = e.state.ID;
         p.EffectiveID = s.state.ID;
 
-        p.EffectedNick = e.GetState<IMain>().NICK;
+        p.EffectedNick = e.state.NICK;
         p.EffectiveNick = s.state.NICK;
 
         p.Send();

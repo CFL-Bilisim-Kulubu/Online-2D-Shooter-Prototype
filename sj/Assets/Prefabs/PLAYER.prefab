@@ -559,7 +559,7 @@ Rigidbody:
   m_GameObject: {fileID: 3951590148835962477}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 1.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c4cf86697425d4ebd50ab3d557f7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "SonH\u0131z": 10
+  "SonH\u0131z": 9
   "Z\u0131plamaG\xFCc\xFC": 10
   "Z\u0131plamaSonH\u0131z\u0131": 0
   "Z\u0131plamaS\xFCresi": 0.3
@@ -771,7 +771,7 @@ MonoBehaviour:
   Kapatilcaklar:
   - {fileID: 3951590148835962482}
   - {fileID: 4140417721943979716}
-  - {fileID: 3951590148835962482}
+  - {fileID: 3253136316571668245}
   KapatilcakObje:
   - {fileID: 2212008714249145525}
   input: {fileID: 3951590148835962484}
@@ -824,8 +824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   s: {fileID: 4019443593372782040}
-  killyazi: {fileID: 0}
-  killyaziparent: {fileID: 0}
   "\xD6l": {fileID: 0}
 --- !u!1 &3951590149215847054
 GameObject:
