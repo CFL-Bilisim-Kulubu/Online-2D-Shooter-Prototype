@@ -12,7 +12,7 @@ public class EventListener : Bolt.GlobalEventListener
     }
     public override void OnEvent(ProjectileDamage evnt)
     {
-        if (evnt.EffectedID == s.state.ID && !s.spawnProtection)
+        if (evnt.EffectedID == s.state.ID && !s.spawnProtection && s.takým != evnt.Team)
         {
             s.Vurul(evnt.Rot * evnt.Damage);
             s.IDEffecter = evnt.EffectiveID;
@@ -24,10 +24,12 @@ public class EventListener : Bolt.GlobalEventListener
         if (evnt.EffectiveID == s.state.ID)
         {
             Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, "Normal Silah");
+            Öl.takým = evnt.Team;
         }
         else
         {
             Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, "Normal Silah");
+            Öl.takým = evnt.Team;
         }
     }
 }

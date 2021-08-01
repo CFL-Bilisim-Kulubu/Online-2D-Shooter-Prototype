@@ -4,6 +4,7 @@ using UnityEngine;
 public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
 {
     [SerializeField] private float hiz,hasar,yokolmaSuresi;
+    private int takým;
     [SerializeField] private Transform t;
     public Senkranizasyon s;
     private Vector3 v = Vector3.one;
@@ -12,6 +13,7 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
         v = Vector3.one * hiz;
         base.Initialized();
         entity.DestroyDelayed(yokolmaSuresi);
+        takým = s.takým;
     }
     public override void SimulateOwner()
     {
@@ -56,6 +58,7 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
 
         p.EffectedNick = e.state.NICK;
         p.EffectiveNick = s.state.NICK;
+        p.Team = takým;
 
         p.Send();
     }

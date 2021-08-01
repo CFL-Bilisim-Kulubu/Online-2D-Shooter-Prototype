@@ -766,6 +766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06e7b6b50c055b41bc3db8f91c7f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "tak\u0131ml\u0131": 0
+  "tak\u0131m": 0
   nick: {fileID: 971207522954885984}
   silah: {fileID: 3951590148715828492}
   Kapatilcaklar:

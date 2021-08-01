@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 using System.Collections;
 public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
 {
+    public bool takýmlý;
+    public int takým;
     [SerializeField] private TMP_Text nick;
     [SerializeField] private Transform silah;
     [SerializeField] private MonoBehaviour[] Kapatilcaklar;
@@ -19,6 +21,14 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     public bool spawnProtection = true;
     public override void Initialized() // Bolt Awake
     {
+        #region renk
+        Color color;
+        color = Color.red;
+        var renkKodu = PlayerPrefs.GetString("CharacterColor");
+        ColorUtility.TryParseHtmlString(renkKodu, out color);
+        state.Color = color;
+        #endregion
+
         state.NICK = PlayerPrefs.GetString("sj");
         spawnProtection = true;
         base.Initialized();
@@ -34,13 +44,14 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
                 m.SetActive(false);
             }
         }
-        else
-        {
-            GetComponent<MeshRenderer>().material.color = Color.red;
-        }
         changeID();
         StartCoroutine(SpawnProtection_());
     }
+    public override void Attached() // Bolt Start
+    {
+        GetComponent<MeshRenderer>().material.color = state.Color;
+        nick.text = state.NICK;
+    } 
     public IEnumerator SpawnProtection_()
     {
         if (NickEffecter != "")
@@ -61,11 +72,18 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         spawnProtection = false;
         Debug.Log("spawn protection bitti");
     }
-    private void changeID()
+    public void changeID()
     {
         nick.text = state.NICK;
         BoltEntity[] e = FindObjectsOfType<BoltEntity>();
-        state.ID = Random.Range(0, 9999999);
+        int a = Random.Range(0, 9999999);
+        state.ID = a;
+        
+        if (!takýmlý)
+            state.Team = a;
+        else
+            state.Team = takým;
+
         if (e.Length > 1)
         {
             foreach (BoltEntity y in e)
@@ -92,7 +110,6 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     {
         if (!entity.IsOwner)
         {
-            nick.text = state.NICK;
             rb.velocity = state.Velocity;
             if (Vector3.Distance(state.Pozisyon, rb.position) > ýþýnlanmaMesafesi)
                 rb.MovePosition(state.Pozisyon);
