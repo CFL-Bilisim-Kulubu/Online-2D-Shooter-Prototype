@@ -768,6 +768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "tak\u0131ml\u0131": 0
   "tak\u0131m": 0
+  m: {fileID: 3951590148835962479}
   nick: {fileID: 971207522954885984}
   silah: {fileID: 3951590148715828492}
   Kapatilcaklar:

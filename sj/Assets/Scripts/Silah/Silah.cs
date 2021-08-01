@@ -49,6 +49,7 @@ public class Silah : MonoBehaviour
             GameObject a =
             BoltNetwork.Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
             a.GetComponent<ProjectileNormal>().s = s;
+            a.GetComponent<ProjectileNormal>().Takým();
             ammo--;
         }
         else if(ammo <= 0)

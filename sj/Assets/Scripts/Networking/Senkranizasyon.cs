@@ -7,6 +7,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
 {
     public bool takýmlý;
     public int takým;
+    [SerializeField] private MeshRenderer m;
     [SerializeField] private TMP_Text nick;
     [SerializeField] private Transform silah;
     [SerializeField] private MonoBehaviour[] Kapatilcaklar;
@@ -24,8 +25,9 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         #region renk
         Color color;
         color = Color.red;
-        var renkKodu = PlayerPrefs.GetString("CharacterColor");
+        var renkKodu = "#"+PlayerPrefs.GetString("Renk");
         ColorUtility.TryParseHtmlString(renkKodu, out color);
+        Debug.Log(renkKodu);
         state.Color = color;
         #endregion
 
@@ -49,7 +51,9 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     }
     public override void Attached() // Bolt Start
     {
-        GetComponent<MeshRenderer>().material.color = state.Color;
+        Color a = state.Color;
+        Debug.Log(a);
+        m.material.color = a;
         nick.text = state.NICK;
     } 
     public IEnumerator SpawnProtection_()

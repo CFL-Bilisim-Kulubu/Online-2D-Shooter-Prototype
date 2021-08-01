@@ -13,6 +13,9 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
         v = Vector3.one * hiz;
         base.Initialized();
         entity.DestroyDelayed(yokolmaSuresi);
+    }
+    public void Takým()
+    {
         takým = s.takým;
     }
     public override void SimulateOwner()
