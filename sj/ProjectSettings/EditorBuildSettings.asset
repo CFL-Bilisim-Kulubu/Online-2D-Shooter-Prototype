@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: e41282e93edc4b249b91660927c8f835
   - enabled: 1
-    path: Assets/Scenes/za.unity
+    path: Assets/Scenes/Haritalar/DM_MermerHarita.unity
     guid: 895c9a5ccb84cdb4caa7ab0bdb710ceb
   m_configObjects: {}
