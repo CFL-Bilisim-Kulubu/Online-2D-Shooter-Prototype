@@ -38,6 +38,7 @@ public class Conttrollrer : MonoBehaviour
 
     void FixedUpdate()
     {
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         _rigidbody.velocity += new Vector3((SonHýz - Mathf.Abs(_rigidbody.velocity.x)) * movement / 15, 0, 0);
 
 

@@ -41,10 +41,8 @@ public class Silah : MonoBehaviour
         {
             t.text = "Mermi : " + ammo + " / " + maxAmmo;
         }
-        if (shootT > shootTime && shoot && !c.tutunma && !s.spawnProtection && ammo > 0)
+        if (shootT > shootTime && shoot && !c.tutunma && !s.spawnProtection && ammo > 0 && !reload)
         {
-            reload = false;
-            reloadT = 0;
             shootT = shootT - shootTime > shootTime ? 0 : shootT - shootTime;
             GameObject a =
             BoltNetwork.Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);

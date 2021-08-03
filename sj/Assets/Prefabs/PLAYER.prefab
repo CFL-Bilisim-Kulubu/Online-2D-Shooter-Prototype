@@ -469,11 +469,11 @@ GameObject:
   - component: {fileID: 3951590148835962480}
   - component: {fileID: 3951590148835962479}
   - component: {fileID: 3951590148835962483}
-  - component: {fileID: 3951590148835962482}
   - component: {fileID: 3951590148835962484}
   - component: {fileID: 3951590148835962478}
   - component: {fileID: 3951590148835962486}
   - component: {fileID: 4518019612843388598}
+  - component: {fileID: 3951590148835962482}
   - component: {fileID: 4019443593372782040}
   - component: {fileID: 6349434502598162230}
   - component: {fileID: 3253136316571668245}
@@ -566,27 +566,6 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 120
   m_CollisionDetection: 2
---- !u!114 &3951590148835962482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3951590148835962477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c4cf86697425d4ebd50ab3d557f7c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "SonH\u0131z": 9
-  "Z\u0131plamaG\xFCc\xFC": 10
-  "Z\u0131plamaSonH\u0131z\u0131": 0
-  "Z\u0131plamaS\xFCresi": 0.3
-  Kafa: {fileID: 3951590148835962486}
-  tutunma: 0
-  jump: 0
-  isGrounded: 0
-  hitted: 0
 --- !u!114 &3951590148835962484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +733,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.6, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3951590148835962482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3951590148835962477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c4cf86697425d4ebd50ab3d557f7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "SonH\u0131z": 9
+  "Z\u0131plamaG\xFCc\xFC": 10
+  "Z\u0131plamaSonH\u0131z\u0131": 0
+  "Z\u0131plamaS\xFCresi": 0.3
+  Kafa: {fileID: 3951590148835962486}
+  tutunma: 0
+  jump: 0
+  isGrounded: 0
+  hitted: 0
 --- !u!114 &4019443593372782040
 MonoBehaviour:
   m_ObjectHideFlags: 0

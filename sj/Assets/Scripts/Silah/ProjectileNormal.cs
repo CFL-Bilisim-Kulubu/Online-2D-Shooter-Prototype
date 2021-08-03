@@ -23,8 +23,10 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
         state.Pozisyon = t.position += t.right * hiz;
           
         RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, t.right, out hit, hiz))
+#if UNITY_EDITOR
+        Debug.DrawRay(transform.position, t.right * hiz * 2, Color.red);
+#endif
+        if (Physics.Raycast(transform.position, t.right, out hit, hiz * 2))
         {
             OnTriggerEnter(hit.collider);
         }
@@ -40,12 +42,17 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
     {
         if (entity.IsOwner)
         {
-            Senkranizasyon e = null;
-            e = other.GetComponent<Senkranizasyon>();
-            
+            Debug.Log(other.gameObject);
+            Debug.Log("mermi carpti ama sj");
+
+            Senkranizasyon e = other.GetComponent<Senkranizasyon>();
+            e = other.gameObject.GetComponent<Senkranizasyon>();
+            Debug.Log(e);
+
             if(e != null)
             {
-               send(e);
+                Debug.Log("mermi carpti");
+                send(e);
             }
             entity.DestroyDelayed(0f);
         } 
@@ -62,6 +69,8 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
         p.EffectedNick = e.state.NICK;
         p.EffectiveNick = s.state.NICK;
         p.Team = takým;
+
+        Debug.Log(p.EffectedID + " " + p.EffectiveID + " takm:" + takým);
 
         p.Send();
     }

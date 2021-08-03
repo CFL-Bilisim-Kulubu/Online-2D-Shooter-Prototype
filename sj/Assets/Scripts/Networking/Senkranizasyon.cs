@@ -20,6 +20,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     public int IDEffecter;
     public string NickEffecter = "";
     public bool spawnProtection = true;
+    private bool degis = true;
     public override void Initialized() // Bolt Awake
     {
         #region renk
@@ -55,6 +56,8 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         Debug.Log(a);
         m.material.color = a;
         nick.text = state.NICK;
+        takým = state.Team;
+        degis = false;
     } 
     public IEnumerator SpawnProtection_()
     {
@@ -82,11 +85,12 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         BoltEntity[] e = FindObjectsOfType<BoltEntity>();
         int a = Random.Range(0, 9999999);
         state.ID = a;
-        
+
         if (!takýmlý)
-            state.Team = a;
-        else
-            state.Team = takým;
+            takým = a;
+
+        state.Team = takým;
+
 
         if (e.Length > 1)
         {
@@ -114,6 +118,15 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     {
         if (!entity.IsOwner)
         {
+            if(degis)
+            {
+                Color a = state.Color;
+                Debug.Log(a);
+                m.material.color = a;
+                nick.text = state.NICK;
+                takým = state.Team;
+                degis = false;
+            }
             rb.velocity = state.Velocity;
             if (Vector3.Distance(state.Pozisyon, rb.position) > ýþýnlanmaMesafesi)
                 rb.MovePosition(state.Pozisyon);
