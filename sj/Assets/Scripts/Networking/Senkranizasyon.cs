@@ -120,11 +120,8 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         {
             if(degis)
             {
-                Color a = state.Color;
-                Debug.Log(a);
-                m.material.color = a;
-                nick.text = state.NICK;
-                takým = state.Team;
+                VisualisePlayer p = VisualisePlayer.Create();
+                p.Send();
                 degis = false;
             }
             rb.velocity = state.Velocity;
@@ -134,6 +131,14 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
                 rb.MovePosition(Vector3.Slerp(rb.position, state.Pozisyon, pozisyonLerpHýzý * Time.fixedDeltaTime));
             silah.rotation = state.silahRot;
         }
+    }
+    public void Ayarla()
+    {
+        Color a = state.Color;
+        Debug.Log(a);
+        m.material.color = a;
+        nick.text = state.NICK;
+        takým = state.Team;
     }
 
     public void Vurul(Vector3 vurus)

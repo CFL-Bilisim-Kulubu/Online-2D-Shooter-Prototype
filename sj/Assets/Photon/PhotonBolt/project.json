@@ -675,6 +675,13 @@
       "Name": "Died",
       "Guid": "3735e5c4-7f0a-461b-9e4b-cc5fcd7c0642",
       "Groups": []
+    },
+    {
+      "$type": "Bolt.Compiler.EventDefinition, bolt.compiler",
+      "Properties": [],
+      "Name": "VisualisePlayer",
+      "Guid": "5290cd13-ddd9-427f-a4d1-e653bde599c6",
+      "Groups": []
     }
   ],
   "ActiveGroup": "Everything"

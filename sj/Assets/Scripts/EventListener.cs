@@ -32,4 +32,12 @@ public class EventListener : Bolt.GlobalEventListener
             Öl.takým = evnt.Team;
         }
     }
+    public override void OnEvent(VisualisePlayer evnt)
+    {
+        Senkranizasyon[] senk = FindObjectsOfType<Senkranizasyon>();
+        foreach(Senkranizasyon sj in senk)
+        {
+            sj.Ayarla();
+        }
+    }
 }

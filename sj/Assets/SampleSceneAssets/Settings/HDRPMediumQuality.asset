@@ -344,7 +344,7 @@ MonoBehaviour:
       DoFResolution: 040000000200000002000000
       DoFHighQualityFiltering: 000001
       DoFPhysicallyBased: 000000
-      MotionBlurSampleCount: 04000000080000000c000000
+      MotionBlurSampleCount: 040000000800000010000000
       BloomRes: 040000000200000002000000
       BloomHighQualityFiltering: 000101
       BloomHighQualityPrefiltering: 000001

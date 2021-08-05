@@ -9,11 +9,12 @@ public class Silah : MonoBehaviour
     [SerializeField] private Senkranizasyon s;
     [SerializeField] private TMP_Text t;
     public Conttrollrer c;
-    private float aim,shootT,reloadT;
+    [SerializeField] private float aim;
+    private float shootT,reloadT;
     private Vector2 gamepadAim, mouseAim;
     private bool gamepad,shoot,tutunma,reload;
     public Camera kamera;
-    public GameObject projectile,projectileSpawn,aimParent;
+    public GameObject projectile,projectileSpawn,aimParent,gunObject;
     [Header("Silah Ayaarları")]
     [Space]
     public float shootTime,maxAmmo,ammo,reloadSuresi;
@@ -67,6 +68,11 @@ public class Silah : MonoBehaviour
                 mouseAim.y - kamera.WorldToScreenPoint(transform.position).y,
                 mouseAim.x - kamera.WorldToScreenPoint(transform.position).x);
         }
+        float sayi = aim > 90 || aim < -90 ? -1f : 1f;
+
+
+        gunObject.transform.localScale = new Vector3(1,sayi,1);
+
         aimParent.transform.rotation = Quaternion.Euler(0, 0, aim);
     }
     public void GamepadAim(InputAction.CallbackContext value)

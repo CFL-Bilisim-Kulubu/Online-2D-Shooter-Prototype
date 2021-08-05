@@ -293,7 +293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: fb3606c6c489be34a92ed5087cb08990, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -404,7 +404,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: fb3606c6c489be34a92ed5087cb08990, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -908,10 +908,12 @@ MonoBehaviour:
   s: {fileID: 4019443593372782040}
   t: {fileID: 8874650972558579943}
   c: {fileID: 3951590148835962482}
+  aim: 0
   kamera: {fileID: 0}
   projectile: {fileID: 1747043412135745472, guid: 9e428f59996b91e40ab1d4b664d0d7c3, type: 3}
   projectileSpawn: {fileID: 3951590148147787950}
   aimParent: {fileID: 3951590148715828491}
+  gunObject: {fileID: 3951590149215847054}
   shootTime: 0.1
   maxAmmo: 40
   ammo: 40
