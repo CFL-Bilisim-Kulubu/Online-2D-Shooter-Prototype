@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b445f43aca37464ea0f153b6e13b49a, type: 3}
+  m_Name: M4
+  m_EditorClassIdentifier: 
+  mermi: {fileID: 1747043412135745472, guid: 9e428f59996b91e40ab1d4b664d0d7c3, type: 3}
+  MermiSpawn: {x: 0.55, y: 0.34, z: 0}
+  MaksimumMermi: 30
+  "Ate\u015FS\xFCresi": 0.1
+  "\u015Earj\xF6rYenilemeS\xFCresi": 3.5
+  mermiTipi: 1
+  silahSayi: 0

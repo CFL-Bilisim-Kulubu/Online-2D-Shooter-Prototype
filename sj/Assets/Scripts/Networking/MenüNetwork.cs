@@ -12,6 +12,7 @@ public class MenüNetwork : Bolt.GlobalEventListener
     [Header("Server Açma", order = 1)]
     [Space(order = 2)]
 
+    [SerializeField] private TMP_Dropdown dropdown;
     [SerializeField] private TMP_InputField odaAdıInputField;
     [SerializeField] private Button serverButton;
     [SerializeField] private GameObject oynaEkranı, refreshText;
@@ -107,9 +108,9 @@ public class MenüNetwork : Bolt.GlobalEventListener
         BoltLauncher.StartServer();
     }
 
-    public void MapDropdown(int value)
+    public void MapDropdown()
     {
-        harita = haritalar[value];
+        harita = haritalar[dropdown.value];
         Debug.Log("Harita değiştirildi! Yeni harita: " + harita);
     }
     public override void BoltStartDone()

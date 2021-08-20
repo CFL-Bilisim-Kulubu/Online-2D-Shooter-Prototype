@@ -7,9 +7,10 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
 {
     public bool takýmlý;
     public int takým;
+    [SerializeField] private Silah silah;
     [SerializeField] private MeshRenderer m;
     [SerializeField] private TMP_Text nick;
-    [SerializeField] private Transform silah;
+    [SerializeField] private Transform silahTransform;
     [SerializeField] private MonoBehaviour[] Kapatilcaklar;
     [SerializeField] private GameObject[] KapatilcakObje;
     [SerializeField] private PlayerInput input;
@@ -20,7 +21,6 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     public int IDEffecter;
     public string NickEffecter = "";
     public bool spawnProtection = true;
-    private bool degis = true;
     public override void Initialized() // Bolt Awake
     {
         #region renk
@@ -56,8 +56,8 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         Debug.Log(a);
         m.material.color = a;
         nick.text = state.NICK;
-        takým = state.Team;
-        degis = false;
+        takým = state.Team; 
+        StartCoroutine(Ayarlayici());
     } 
     public IEnumerator SpawnProtection_()
     {
@@ -112,33 +112,49 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         base.SimulateOwner();
         state.Velocity = rb.velocity;
         state.Pozisyon = t.position;
-        state.silahRot = silah.rotation;
+        state.silahRot = silahTransform.rotation;
     }
     private void FixedUpdate()
     {
         if (!entity.IsOwner)
         {
-            if(degis)
-            {
-                VisualisePlayer p = VisualisePlayer.Create();
-                p.Send();
-                degis = false;
-            }
             rb.velocity = state.Velocity;
             if (Vector3.Distance(state.Pozisyon, rb.position) > ýþýnlanmaMesafesi)
                 rb.MovePosition(state.Pozisyon);
             else
                 rb.MovePosition(Vector3.Slerp(rb.position, state.Pozisyon, pozisyonLerpHýzý * Time.fixedDeltaTime));
-            silah.rotation = state.silahRot;
+            silahTransform.rotation = state.silahRot;
         }
     }
-    public void Ayarla()
+    private IEnumerator Ayarlayici()
     {
-        Color a = state.Color;
+        yield return new WaitForSeconds(2f);
+        VisualisePlayer p = VisualisePlayer.Create();
+        p.Send();
+    }
+    public void Ayarla(Color a)
+    {
         Debug.Log(a);
         m.material.color = a;
         nick.text = state.NICK;
         takým = state.Team;
+    }
+
+    public void SilahSenkranizasyon()
+    {
+        if (entity.IsOwner)
+        {
+            ChangeWeapon c = ChangeWeapon.Create();
+            c.ID = state.ID;
+            c.weapon = silah.silahID;
+            c.Send();
+        }
+    }
+    public void SilahModelDeðiþ(int silahID)
+    {
+        foreach (GameObject s in silah.silahObjeleri)
+            s.SetActive(false);
+        silah.silahObjeleri[silahID].SetActive(true);
     }
 
     public void Vurul(Vector3 vurus)

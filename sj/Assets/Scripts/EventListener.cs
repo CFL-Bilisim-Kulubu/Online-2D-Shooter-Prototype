@@ -37,7 +37,19 @@ public class EventListener : Bolt.GlobalEventListener
         Senkranizasyon[] senk = FindObjectsOfType<Senkranizasyon>();
         foreach(Senkranizasyon sj in senk)
         {
-            sj.Ayarla();
+            sj.Ayarla(sj.state.Color);
+        }
+        FindObjectOfType<Callbacks>().renk();// takýmlýysa rengimiz kendimizde düzelsin diye
+    }
+    public override void OnEvent(ChangeWeapon evnt)
+    {
+        Senkranizasyon[] senk = FindObjectsOfType<Senkranizasyon>();
+        foreach (Senkranizasyon sj in senk)
+        {
+            if(sj.state.ID == evnt.ID)
+            {
+                sj.SilahModelDeðiþ(evnt.weapon);
+            }
         }
     }
 }

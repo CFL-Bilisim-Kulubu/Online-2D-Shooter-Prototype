@@ -6,21 +6,24 @@ using Bolt;
 
 public class Silah : MonoBehaviour
 {
+    public GameObject[] silahObjeleri;
+    public SilahAyarlarý ayar;
     [SerializeField] private Senkranizasyon s;
     [SerializeField] private TMP_Text t;
     public Conttrollrer c;
     [SerializeField] private float aim;
     private float shootT,reloadT;
-    private Vector2 gamepadAim, mouseAim;
+    private Vector2 gamepadAim, mouseAim, playerLoc;
     private bool gamepad,shoot,tutunma,reload;
     public Camera kamera;
     public GameObject projectile,projectileSpawn,aimParent,gunObject;
-    [Header("Silah Ayaarlarý")]
-    [Space]
-    public float shootTime,maxAmmo,ammo,reloadSuresi;
+    [SerializeField] private float shootTime,maxAmmo,ammo,reloadSuresi;
+    private int mermiTipi = 1;
+    public int silahID;
 
     private void Awake()
     {
+        Ayarla();
         reload = false;
         kamera = FindObjectOfType<Camera>();
     }
@@ -42,21 +45,30 @@ public class Silah : MonoBehaviour
         {
             t.text = "Mermi : " + ammo + " / " + maxAmmo;
         }
+
+
         if (shootT > shootTime && shoot && !c.tutunma && !s.spawnProtection && ammo > 0 && !reload)
         {
-            shootT = shootT - shootTime > shootTime ? 0 : shootT - shootTime;
+            shootT = 0;
             GameObject a =
             BoltNetwork.Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
-            a.GetComponent<ProjectileNormal>().s = s;
-            a.GetComponent<ProjectileNormal>().Takým();
-            ammo--;
+            switch (mermiTipi)
+            {
+                case 1:
+                    a.GetComponent<ProjectileNormal>().s = s;
+                    a.GetComponent<ProjectileNormal>().Takým();
+                    ammo--;
+                    break;
+            }
         }
         else if(ammo <= 0)
         {
             Reload();
         }
 
-        
+        #region aim alma
+
+        playerLoc = kamera.WorldToScreenPoint(transform.position);
 
         if (gamepad)
         {
@@ -65,8 +77,8 @@ public class Silah : MonoBehaviour
         else
         {
             aim = Mathf.Rad2Deg * Mathf.Atan2(
-                mouseAim.y - kamera.WorldToScreenPoint(transform.position).y,
-                mouseAim.x - kamera.WorldToScreenPoint(transform.position).x);
+                mouseAim.y - playerLoc.y,
+                mouseAim.x - playerLoc.x);
         }
         float sayi = aim > 90 || aim < -90 ? -1f : 1f;
 
@@ -74,7 +86,41 @@ public class Silah : MonoBehaviour
         gunObject.transform.localScale = new Vector3(1,sayi,1);
 
         aimParent.transform.rotation = Quaternion.Euler(0, 0, aim);
+
+        #endregion
     }
+
+    public void Ayarla()
+    {
+        projectile = ayar.mermi;
+        shootTime = ayar.AteþSüresi;
+        maxAmmo = ayar.MaksimumMermi;
+        ammo = maxAmmo;
+        reloadSuresi = ayar.ÞarjörYenilemeSüresi;
+        projectileSpawn.transform.localPosition = ayar.MermiSpawn;
+        mermiTipi = ayar.mermiTipi;
+        silahID = ayar.silahSayi;
+
+        foreach (GameObject s in silahObjeleri)
+            s.SetActive(false);
+        silahObjeleri[silahID].SetActive(true);
+    }
+
+    public void Sýfýrla()
+    {
+        ammo = 0;
+    }
+
+    public void Reload()
+    {
+        if (!reload)
+        {
+            reload = true;
+        }
+    }
+
+    #region girdi
+
     public void GamepadAim(InputAction.CallbackContext value)
     {
         gamepadAim = value.ReadValue<Vector2>();
@@ -94,11 +140,6 @@ public class Silah : MonoBehaviour
     {
         Reload();
     }
-    public void Reload()
-    {
-        if (!reload)
-        {
-            reload = true;
-        }
-    }
+
+    #endregion
 }

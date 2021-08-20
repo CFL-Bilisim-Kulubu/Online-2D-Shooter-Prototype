@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "AxisDeadzone(max=1)",
                     "interactions": ""
+                },
+                {
+                    "name": "Debug_Silah_Deg",
+                    "type": "Button",
+                    "id": "82cd3ac1-54eb-4457-8866-fd2c40a63624",
+                    "expectedControlType": "Button",
+                    "processors": "AxisDeadzone(max=1)",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -206,6 +214,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92165dc5-4d52-418f-b73c-50690ed63360",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug_Silah_Deg",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

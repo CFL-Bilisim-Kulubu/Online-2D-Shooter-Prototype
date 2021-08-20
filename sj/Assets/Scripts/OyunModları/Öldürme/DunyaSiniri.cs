@@ -25,7 +25,7 @@ public class DunyaSiniri : MonoBehaviour
             if (s.entity.IsOwner)
             {
                 Silah sj = other.GetComponentInChildren<Silah>();
-                sj.ammo = sj.maxAmmo;
+                sj.Ayarla();
                 s.StartCoroutine("SpawnProtection_");
                 acik = true;
             }
