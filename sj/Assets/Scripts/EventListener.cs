@@ -17,18 +17,19 @@ public class EventListener : Bolt.GlobalEventListener
             s.Vurul(evnt.Rot * evnt.Damage);
             s.IDEffecter = evnt.EffectiveID;
             s.NickEffecter = evnt.EffectiveNick;
+            s.GunEffecter = evnt.Silah;
         }
     }
     public override void OnEvent(Died evnt)
     {
         if (evnt.EffectiveID == s.state.ID)
         {
-            Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, "Normal Silah");
+            Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, evnt.Gun);
             Öl.takým = evnt.Team;
         }
         else
         {
-            Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, "Normal Silah");
+            Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, evnt.Gun);
             Öl.takým = evnt.Team;
         }
     }

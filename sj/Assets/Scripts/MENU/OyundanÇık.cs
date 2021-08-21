@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OdadanÇık : MonoBehaviour
+public class OyundanÇık : MonoBehaviour
 {
     private void Awake()
     {

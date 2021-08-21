@@ -19,7 +19,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform t;
     public int IDEffecter;
-    public string NickEffecter = "";
+    public string NickEffecter = "",GunEffecter;
     public bool spawnProtection = true;
     public override void Initialized() // Bolt Awake
     {
@@ -67,6 +67,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
             p.EffectedID = state.ID;
             p.EffectiveID = IDEffecter;
 
+            p.Gun = GunEffecter;
             p.EffectedNick = state.NICK;
             p.EffectiveNick = NickEffecter;
             p.Send();

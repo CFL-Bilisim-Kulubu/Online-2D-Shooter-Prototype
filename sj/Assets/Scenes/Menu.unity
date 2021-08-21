@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4613.8555, g: 2948.5488, b: 2185.4258, a: 1}
+  m_IndirectSpecularColor: {r: 4613.797, g: 2948.5332, b: 2185.4258, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2560,6 +2560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b65b479d8e78e42b9cd5ea39b77921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoDisconnect: {fileID: 4623675894661872900, guid: adeb402ebd84d4a488f129eb25e1fe9c, type: 3}
   dropdown: {fileID: 5824981165803737601}
   "odaAd\u0131InputField": {fileID: 5824981166161385978}
   serverButton: {fileID: 5824981167171191537}

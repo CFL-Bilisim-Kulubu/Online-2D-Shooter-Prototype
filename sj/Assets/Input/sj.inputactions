@@ -60,6 +60,22 @@
                     "expectedControlType": "Button",
                     "processors": "AxisDeadzone(max=1)",
                     "interactions": ""
+                },
+                {
+                    "name": "Debug_Konsol",
+                    "type": "Button",
+                    "id": "609fad00-e79d-487c-bced-7d4de31a0b8e",
+                    "expectedControlType": "Button",
+                    "processors": "AxisDeadzone(max=1)",
+                    "interactions": ""
+                },
+                {
+                    "name": "ESC",
+                    "type": "Button",
+                    "id": "1acf834b-3c69-4916-803a-2b892c1762b7",
+                    "expectedControlType": "Button",
+                    "processors": "AxisDeadzone(max=1)",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -225,6 +241,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Debug_Silah_Deg",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c229c61-d54b-4c37-8b7e-16e684e3e8db",
+                    "path": "<Keyboard>/leftBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug_Konsol",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b10fce48-ee0a-42cf-905a-4a8d2344a157",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dea0aa48-b866-4393-9af9-a63b6955e5c7",
+                    "path": "<DualShockGamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fa9d2fa-dd1f-4965-964e-645e695fbeda",
+                    "path": "<XInputController>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

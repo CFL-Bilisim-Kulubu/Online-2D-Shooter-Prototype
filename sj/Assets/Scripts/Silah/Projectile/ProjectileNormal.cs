@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
 {
+    [SerializeField] private GameObject debugObject;
     [SerializeField] private float hiz,hasar,yokolmaSuresi;
+    [SerializeField] private string silahAd;
     private int takým;
     [SerializeField] private Transform t;
     public Senkranizasyon s;
     private Vector3 v = Vector3.one;
+    private bool hasarVerildi = false;
     public override void Initialized()
     {
         v = Vector3.one * hiz;
@@ -28,7 +31,10 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
 #endif
         if (Physics.Raycast(transform.position, t.right, out hit, hiz * 2))
         {
-            OnTriggerEnter(hit.collider);
+            if (!hasarVerildi)
+            {
+                OnTriggerEnter(hit.collider);
+            }
         }
     }
     private void Update()
@@ -40,10 +46,13 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
     }
     private void OnTriggerEnter(Collider other)
     {
+        if(s.gameObject.GetComponent<DebugPlayer>().debug)
+        {
+            Instantiate(debugObject, this.transform.position, Quaternion.identity);
+        }
         if (entity.IsOwner)
         {
-            Debug.Log(other.gameObject);
-            Debug.Log("mermi carpti ama sj");
+            hasarVerildi = true;
 
             Senkranizasyon e = other.GetComponent<Senkranizasyon>();
             e = other.gameObject.GetComponent<Senkranizasyon>();
@@ -51,7 +60,6 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
 
             if(e != null)
             {
-                Debug.Log("mermi carpti");
                 send(e);
             }
             entity.DestroyDelayed(0f);
@@ -69,6 +77,7 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
         p.EffectedNick = e.state.NICK;
         p.EffectiveNick = s.state.NICK;
         p.Team = takým;
+        p.Silah = silahAd;
 
         Debug.Log(p.EffectedID + " " + p.EffectiveID + " takm:" + takým);
 

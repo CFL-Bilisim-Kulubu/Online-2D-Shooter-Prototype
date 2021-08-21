@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class MenüNetwork : Bolt.GlobalEventListener
 {
+    [SerializeField] private GameObject autoDisconnect;
     [Header("Server Açma", order = 1)]
     [Space(order = 2)]
 
@@ -150,6 +151,7 @@ public class MenüNetwork : Bolt.GlobalEventListener
         joinGameButtonClone.gameObject.SetActive(true);
         joinGameButtonClone.onClick.AddListener(() => JoinGame(photonSession)); // server girme tuşu ayarlama
         joinGameButtonClone.onClick.AddListener(() => PlayerPrefs.SetString("Room Name", label));
+        joinGameButtonClone.onClick.AddListener(() => Instantiate(autoDisconnect,Vector3.zero,Quaternion.identity));
 
         TMP_Text odaAdı = joinGameButtonClone.GetComponentInChildren<TMP_Text>();
         odaAdı.text = label; // oda adını tuşa yazdırma
