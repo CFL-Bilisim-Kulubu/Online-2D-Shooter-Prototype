@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1747043412135745479}
   - component: {fileID: -5140308206751492432}
   m_Layer: 0
-  m_Name: NormalMermi
+  m_Name: AK47Mermi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1747043412135745472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.54, y: 14.1, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1.4, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,10 +110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugObject: {fileID: 5523227210049125088, guid: 24cfe4205eb561243b6b85f9d24b94e9, type: 3}
-  hiz: 0.5
-  hasar: 500
+  hiz: 0.65
+  hasar: 550
   yokolmaSuresi: 2
-  silahAd: M4
+  silahAd: AK47
   t: {fileID: 1747043412135745476}
   s: {fileID: 0}
 --- !u!114 &-5140308206751492432

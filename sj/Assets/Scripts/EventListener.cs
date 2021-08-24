@@ -14,7 +14,14 @@ public class EventListener : Bolt.GlobalEventListener
     {
         if (evnt.EffectedID == s.state.ID && !s.spawnProtection && s.takým != evnt.Team)
         {
-            s.Vurul(evnt.Rot * evnt.Damage);
+            if(!evnt.AreaDamage)
+            {
+                s.Vurul(evnt.Rot * evnt.Damage);
+            }
+            else
+            {
+                s.rb.AddExplosionForce(evnt.Damage, evnt.Position, evnt.Area);
+            }
             s.IDEffecter = evnt.EffectiveID;
             s.NickEffecter = evnt.EffectiveNick;
             s.GunEffecter = evnt.Silah;

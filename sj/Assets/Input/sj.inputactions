@@ -246,6 +246,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5d612c4e-6f60-4850-a92f-838201b7af90",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug_Silah_Deg",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7c229c61-d54b-4c37-8b7e-16e684e3e8db",
                     "path": "<Keyboard>/leftBracket",
                     "interactions": "",

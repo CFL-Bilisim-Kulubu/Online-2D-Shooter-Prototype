@@ -16,7 +16,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     [SerializeField] private PlayerInput input;
     [SerializeField] [Range(1f, 20f)] private float ýþýnlanmaMesafesi = 25f;
     [SerializeField] [Range(0.01f, 50f)] private float pozisyonLerpHýzý = 2f;
-    [SerializeField] private Rigidbody rb;
+    public Rigidbody rb;
     [SerializeField] private Transform t;
     public int IDEffecter;
     public string NickEffecter = "",GunEffecter;

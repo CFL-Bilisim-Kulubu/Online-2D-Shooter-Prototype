@@ -1,10 +1,10 @@
 using Bolt;
 using UnityEngine;
 
-public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
+public class ProjectileBomb : Bolt.EntityBehaviour<IMermi>
 {
-    [SerializeField] private GameObject debugObject;
-    [SerializeField] private float hiz,hasar,yokolmaSuresi;
+    [SerializeField] private GameObject debugObject,patlamaInstance;
+    [SerializeField] private float hiz, hasar, yokolmaSuresi,alan;
     [SerializeField] private string silahAd;
     private int takým;
     [SerializeField] private Transform t;
@@ -24,7 +24,7 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
     public override void SimulateOwner()
     {
         state.Pozisyon = t.position += t.right * hiz;
-          
+
         RaycastHit hit;
 #if UNITY_EDITOR
         Debug.DrawRay(transform.position, t.right * hiz * 2, Color.red);
@@ -46,7 +46,7 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(s.gameObject.GetComponent<DebugPlayer>().debug)
+        if (s.gameObject.GetComponent<DebugPlayer>().debug)
         {
             Instantiate(debugObject, this.transform.position, Quaternion.identity);
         }
@@ -54,16 +54,20 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
         {
             hasarVerildi = true;
 
-            Senkranizasyon e = other.GetComponent<Senkranizasyon>();
-            e = other.gameObject.GetComponent<Senkranizasyon>();
-            Debug.Log(e);
+            Collider[] bombaCol = Physics.OverlapSphere(transform.position, alan);
 
-            if(e != null)
+            foreach (Collider c in bombaCol)
             {
-                send(e);
+                Senkranizasyon e;
+                e = c.gameObject.GetComponent<Senkranizasyon>();
+                if (e != null)
+                {
+                    send(e);
+                }
+
             }
             entity.DestroyDelayed(0f);
-        } 
+        }
     }
     public void send(Senkranizasyon e)
     {
@@ -76,9 +80,11 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
 
         p.EffectedNick = e.state.NICK;
         p.EffectiveNick = s.state.NICK;
-        p.Team = takým;
+        p.Team = 999999999;
         p.Silah = silahAd;
-        p.AreaDamage = false;
+        p.AreaDamage = true;
+        p.Area = alan;
+        p.Position = transform.position;
 
         Debug.Log(p.EffectedID + " " + p.EffectiveID + " takm:" + takým);
 

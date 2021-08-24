@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b445f43aca37464ea0f153b6e13b49a, type: 3}
-  m_Name: Sniper
+  m_Name: RoketAtar
   m_EditorClassIdentifier: 
-  mermi: {fileID: 1747043412135745472, guid: 83140faa001240b4f825195d05d27763, type: 3}
-  MermiSpawn: {x: 1.017, y: 0.34, z: 0}
-  MaksimumMermi: 7
-  "Ate\u015FS\xFCresi": 1.5
+  mermi: {fileID: 1108411468336604260, guid: 116b64db48333f34f966f943dc81bfb0, type: 3}
+  MermiSpawn: {x: -0.222, y: 0.09, z: 0}
+  MaksimumMermi: 1
+  "Ate\u015FS\xFCresi": 0
   "\u015Earj\xF6rYenilemeS\xFCresi": 3
-  mermiTipi: 1
-  silahSayi: 1
+  mermiTipi: 2
+  silahSayi: 2
