@@ -23,6 +23,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     public bool spawnProtection = true;
     public override void Initialized() // Bolt Awake
     {
+        state.Death = 0;
         #region renk
         Color color;
         color = Color.red;
@@ -63,6 +64,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     {
         if (NickEffecter != "")
         {
+            state.Death++;
             Died p = Died.Create();
             p.EffectedID = state.ID;
             p.EffectiveID = IDEffecter;

@@ -11,7 +11,6 @@ public class OyuncuListesi : MonoBehaviour
     [SerializeField] private RectTransform content;
     [SerializeField] private GameObject butonPrefab;
     private List<GameObject> butonlar = new List<GameObject>();
-    public List<string> kd;
     private float mevcutSüre = 0;
 
     private bool açıkmı = false;
@@ -23,7 +22,7 @@ public class OyuncuListesi : MonoBehaviour
         oyuncuListesi.SetActive(false);
     }
 
-    private void OyuncuListesiInput(InputAction.CallbackContext context)
+    public void OyuncuListesiInput(InputAction.CallbackContext context)
     {
         açıkmı = context.ReadValueAsButton();
         oyuncuListesi.SetActive(açıkmı);
@@ -53,11 +52,13 @@ public class OyuncuListesi : MonoBehaviour
 
         foreach (BoltEntity entity in FindObjectsOfType<BoltEntity>())
         {
-            string name = entity.GetState<IMain>().NICK; // nick verisini çekiyorum manuel olarak
+            string text = entity.GetState<IMain>().NICK + " " + entity.GetState<IMain>().Kill + " " + entity.GetState<IMain>().Death; // nick verisini çekiyorum manuel olarak
 
-            // oyuncu listesini buton yaptým ilerde týklayarak kick vote açma falan eklicem
+            // oyuncu listesini buton yaptım ilerde tıklayarak kick vote açma falan eklicem
             GameObject oluşturulanButon = Instantiate(butonPrefab, content);
-            oluşturulanButon.GetComponentInChildren<TMP_Text>().text = name;
+            oluşturulanButon.GetComponentInChildren<TMP_Text>().text = text;
+
+
 
             butonlar.Add(oluşturulanButon); // butonu listeye ekledik
         }

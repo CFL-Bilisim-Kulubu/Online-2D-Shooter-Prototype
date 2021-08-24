@@ -33,6 +33,7 @@ public class EventListener : Bolt.GlobalEventListener
         {
             Öl.OnKilled(evnt.EffectiveNick, evnt.EffectedNick, evnt.Gun);
             Öl.takým = evnt.Team;
+            s.entity.GetState<IMain>().Kill++;
         }
         else
         {

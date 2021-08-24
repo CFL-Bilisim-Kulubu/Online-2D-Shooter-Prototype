@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "AxisDeadzone(max=1)",
                     "interactions": ""
+                },
+                {
+                    "name": "PlayerList",
+                    "type": "Button",
+                    "id": "2ff8dac4-6cd1-4f51-b8e3-a2c19cf0b540",
+                    "expectedControlType": "Button",
+                    "processors": "AxisDeadzone(max=1)",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -279,8 +287,8 @@
                 },
                 {
                     "name": "",
-                    "id": "dea0aa48-b866-4393-9af9-a63b6955e5c7",
-                    "path": "<DualShockGamepad>/start",
+                    "id": "c66812f6-d6c0-4571-b810-446a82bfc472",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -290,12 +298,23 @@
                 },
                 {
                     "name": "",
-                    "id": "4fa9d2fa-dd1f-4965-964e-645e695fbeda",
-                    "path": "<XInputController>/start",
+                    "id": "a7ebf6d9-1b67-486e-a8ed-0deac2414071",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ESC",
+                    "action": "PlayerList",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "780cd346-5237-47b8-915a-0420a6cccab5",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerList",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
