@@ -6969,3 +6969,26 @@ Received Import Request.
 Start importing Assets/Prefabs/PLAYER.prefab using Guid(26888ec008764b84296c63cfe640adf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4263c69c029b066b1d60bf1ff89f304b') in 0.157025 seconds
   Import took 0.171148 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.016183 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.14 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.806 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.11 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3603 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 190.4 MB.
+System memory in use after: 190.6 MB.
+
+Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 4721.
+Total: 4.513300 ms (FindLiveObjects: 0.492400 ms CreateObjectMapping: 0.307000 ms MarkObjects: 3.666800 ms  DeleteObjects: 0.045400 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
