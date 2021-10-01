@@ -52,6 +52,8 @@ public class OyuncuListesi : MonoBehaviour
 
         foreach (BoltEntity entity in FindObjectsOfType<BoltEntity>())
         {
+            if (!entity.StateIs<IMain>())
+                return;
             string text = entity.GetState<IMain>().NICK + " " + entity.GetState<IMain>().Kill + " " + entity.GetState<IMain>().Death; // nick verisini çekiyorum manuel olarak
 
             // oyuncu listesini buton yaptım ilerde tıklayarak kick vote açma falan eklicem
