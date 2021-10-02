@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9016641917050405180}
   - component: {fileID: 9016641917050405181}
   - component: {fileID: 9016641917050405178}
+  - component: {fileID: 1988727375167955828}
   m_Layer: 0
   m_Name: Patlama 1
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneGuid: 
   _serializerGuid: 6bedc939-61c9-46f1-b8bf-fd999313be8a
-  _prefabId: 1
+  _prefabId: 4
   _updateRate: 1
   _autoFreezeProxyFrames: 0
   _clientPredicted: 1
@@ -165,3 +166,16 @@ MonoBehaviour:
   _entityBehaviourQueryOption: 0
   _entityPriorityCalculatorQueryOption: 1
   _entityReplicationFilterQueryOption: 1
+--- !u!114 &1988727375167955828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016641917050405182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22226fe36ef7f2a46a7cbdd9c5943975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sure: 3
