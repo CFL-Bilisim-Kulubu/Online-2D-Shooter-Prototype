@@ -41,12 +41,11 @@ public class ProjectileBomb : Bolt.EntityBehaviour<IMermi>
     {
         if (!entity.IsOwner)
         {
-            t.position = Vector3.Slerp(t.position, state.Pozisyon,Time.deltaTime);
+            t.position = state.Pozisyon;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        BoltNetwork.Instantiate(patlamaInstance, this.transform.position, Quaternion.identity);
         if (s.gameObject.GetComponent<DebugPlayer>().debug)
         {
             Instantiate(debugObject, this.transform.position, Quaternion.identity);
