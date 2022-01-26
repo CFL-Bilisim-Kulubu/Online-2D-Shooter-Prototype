@@ -1,11 +1,10 @@
-﻿using Microsoft.Win32.SafeHandles;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using UnityEngine;
 
-namespace Bolt
+namespace Photon.Bolt
 {
 	public static class ConsoleWriter
 	{
@@ -15,19 +14,19 @@ namespace Bolt
 			public const int STD_OUTPUT_HANDLE = -11;
 
 			[DllImport("kernel32.dll", SetLastError = true)]
-			static public extern bool AttachConsole(uint dwProcessId);
+			public static extern bool AttachConsole(uint dwProcessId);
 
 			[DllImport("kernel32.dll", SetLastError = true)]
-			static public extern bool AllocConsole();
+			public static extern bool AllocConsole();
 
 			[DllImport("kernel32.dll", SetLastError = true)]
-			static public extern bool FreeConsole();
+			public static extern bool FreeConsole();
 
 			[DllImport("kernel32.dll", EntryPoint = "GetStdHandle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-			static public extern IntPtr GetStdHandle(int nStdHandle);
+			public static extern IntPtr GetStdHandle(int nStdHandle);
 
 			[DllImport("kernel32.dll")]
-			static public extern bool SetConsoleTitle(string lpConsoleTitle);
+			public static extern bool SetConsoleTitle(string lpConsoleTitle);
 		}
 
 		static TextWriter realOut;
@@ -58,13 +57,15 @@ namespace Bolt
 #pragma warning restore 0618
 
 				// and then create a new stream writer (using ASCII) 
-				var stdOut = new StreamWriter(fileStream, Encoding.ASCII);
-				stdOut.AutoFlush = true;
+				var stdOut = new StreamWriter(fileStream, Encoding.ASCII)
+				{
+					AutoFlush = true
+				};
 
 				// and force unity to use this
 				Console.SetOut(stdOut);
 			}
-			catch (System.Exception e)
+			catch (Exception e)
 			{
 				Debug.Log(e);
 			}

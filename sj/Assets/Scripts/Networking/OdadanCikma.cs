@@ -7,7 +7,7 @@ public class OdadanCikma : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        BoltNetwork.Shutdown();
+        Photon.Bolt.BoltNetwork.Shutdown();
         StartCoroutine(MenüDönme());
     }
 

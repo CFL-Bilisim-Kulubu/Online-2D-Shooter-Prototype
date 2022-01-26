@@ -1,29 +1,35 @@
+using Photon.Bolt.Utils;
+
+#if UNITY_STANDALONE
+using System.Runtime.InteropServices;
 using System;
 using System.Linq;
-using System.Runtime.InteropServices;
+#endif
 
-public class BoltDebugStartSettings
+namespace Photon.Bolt
 {
+	public class BoltDebugStartSettings
+	{
 #if UNITY_EDITOR
-	public static bool DebugStartIsSinglePlayer
-	{
-		get { return BoltRuntimeSettings.instance.debugEditorMode == BoltEditorStartMode.None; }
-	}
+		public static bool DebugStartIsSinglePlayer
+		{
+			get { return BoltRuntimeSettings.instance.debugEditorMode == BoltEditorStartMode.None; }
+		}
 
-	public static bool DebugStartIsServer
-	{
-		get { return BoltRuntimeSettings.instance.debugEditorMode == BoltEditorStartMode.Server; }
-	}
+		public static bool DebugStartIsServer
+		{
+			get { return BoltRuntimeSettings.instance.debugEditorMode == BoltEditorStartMode.Server; }
+		}
 
-	public static bool DebugStartIsClient
-	{
-		get { return BoltRuntimeSettings.instance.debugEditorMode == BoltEditorStartMode.Client; }
-	}
+		public static bool DebugStartIsClient
+		{
+			get { return BoltRuntimeSettings.instance.debugEditorMode == BoltEditorStartMode.Client; }
+		}
 
-	public static int WindowIndex
-	{
-		get { return -1; }
-	}
+		public static int WindowIndex
+		{
+			get { return -1; }
+		}
 #elif UNITY_STANDALONE
 	public static bool DebugStartIsSinglePlayer
 	{
@@ -181,9 +187,10 @@ public class BoltDebugStartSettings
 		}
 	}
 #else
-	public static void PositionWindow()
-	{
+		public static void PositionWindow()
+		{
 
-	}
+		}
 #endif
+	}
 }

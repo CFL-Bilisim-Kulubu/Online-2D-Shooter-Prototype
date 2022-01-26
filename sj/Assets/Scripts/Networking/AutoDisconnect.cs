@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
-using Bolt;
+using Photon.Bolt;
 using UdpKit;
 using UdpKit.Platform.Photon;
-using Bolt.Matchmaking;
+using Photon.Bolt.Matchmaking;
 using UnityEngine.SceneManagement;
 
 public class AutoDisconnect : GlobalEventListener

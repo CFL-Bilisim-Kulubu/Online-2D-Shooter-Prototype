@@ -1,20 +1,21 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using BoltInternal;
+using Photon.Bolt.Collections;
+using Photon.Bolt.Internal;
+using Photon.Bolt.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Scripting;
 
-namespace Bolt
+namespace Photon.Bolt
 {
 	[Preserve]
 	public static class BoltDynamicData
 	{
 		public static void Setup()
 		{
-			BoltNetworkInternal.DebugDrawer = new BoltInternal.UnityDebugDrawer();
+			BoltNetworkInternal.DebugDrawer = new UnityDebugDrawer();
 
 #if UNITY_PRO_LICENSE
 			BoltNetworkInternal.UsingUnityPro = true;
@@ -26,8 +27,8 @@ namespace Bolt
 			BoltNetworkInternal.GetSceneName = GetSceneName;
 			BoltNetworkInternal.GetSceneIndex = GetSceneIndex;
 			BoltNetworkInternal.GetGlobalBehaviourTypes = GetGlobalBehaviourTypes;
-			BoltNetworkInternal.EnvironmentSetup = BoltInternal.BoltNetworkInternal_User.EnvironmentSetup;
-			BoltNetworkInternal.EnvironmentReset = BoltInternal.BoltNetworkInternal_User.EnvironmentReset;
+			BoltNetworkInternal.EnvironmentSetup = BoltNetworkInternal_User.EnvironmentSetup;
+			BoltNetworkInternal.EnvironmentReset = BoltNetworkInternal_User.EnvironmentReset;
 
 			// Setup Unity Config
 
@@ -73,41 +74,47 @@ namespace Bolt
 
 		private static List<STuple<BoltGlobalBehaviourAttribute, Type>> GetGlobalBehaviourTypes()
 		{
-			List<STuple<BoltGlobalBehaviourAttribute, Type>> result = new List<STuple<BoltGlobalBehaviourAttribute, Type>>();
+			var globalBehaviours = new List<STuple<BoltGlobalBehaviourAttribute, Type>>();
+			var asmIter = BoltAssemblies.AllAssemblies;
+			var assemblyList = AppDomain.CurrentDomain.GetAssemblies();
 
-			try
+			while (asmIter.MoveNext())
 			{
-				var asmIter = BoltAssemblies.AllAssemblies;
-				while (asmIter.MoveNext())
+				try
 				{
-					var asm = GetAssemblyByName(asmIter.Current);
+					// Load Assembly
+					var asm = Array.Find(assemblyList, (assembly) => assembly.GetName().Name.Equals(asmIter.Current));
+
+					// Skip of not found
 					if (asm == null) { continue; }
 
 					foreach (Type type in asm.GetTypes())
 					{
-						if (typeof(MonoBehaviour).IsAssignableFrom(type))
+						try
 						{
-							var attrs = (BoltGlobalBehaviourAttribute[])type.GetCustomAttributes(typeof(BoltGlobalBehaviourAttribute), false);
-
-							if (attrs.Length == 1)
+							if (typeof(MonoBehaviour).IsAssignableFrom(type))
 							{
-								result.Add(new STuple<BoltGlobalBehaviourAttribute, Type>(attrs[0], type));
+								var globalAttr = type.GetCustomAttribute<BoltGlobalBehaviourAttribute>(false);
+
+								if (globalAttr != null)
+								{
+									globalBehaviours.Add(new STuple<BoltGlobalBehaviourAttribute, Type>(globalAttr, type));
+								}
 							}
+						}
+						catch (Exception e2)
+						{
+							BoltLog.Warn(e2);
 						}
 					}
 				}
-			}
-			catch (Exception e)
-			{
-				BoltLog.Exception(e);
+				catch (Exception e)
+				{
+					BoltLog.Warn(e);
+				}
 			}
 
-			return result;
-		}
-
-		private static Assembly GetAssemblyByName(string name)
-		{
-			return AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == name);
+			return globalBehaviours;
 		}
 	}
 }

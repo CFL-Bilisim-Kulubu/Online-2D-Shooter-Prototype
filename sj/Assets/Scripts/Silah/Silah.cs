@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Bolt;
+using Photon.Bolt;
 
 public class Silah : MonoBehaviour
 {

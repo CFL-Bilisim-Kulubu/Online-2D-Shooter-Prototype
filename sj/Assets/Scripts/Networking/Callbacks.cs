@@ -1,6 +1,5 @@
-﻿using Bolt;
+﻿using Photon.Bolt;
 using UnityEngine;
-using System.Collections;
 
 public class Callbacks : GlobalEventListener
 {
@@ -12,7 +11,7 @@ public class Callbacks : GlobalEventListener
     private Color player;
 
     [System.Obsolete]
-    public override void SceneLoadLocalDone(string scene)
+    public override void SceneLoadLocalDone(string scene, IProtocolToken protocolToken)
     {
         if(!Takımlı)
             Spawn(0);

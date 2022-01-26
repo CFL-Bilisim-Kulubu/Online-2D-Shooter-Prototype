@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 95238504, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Script: {fileID: 2106054330, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
   m_Name: BoltRuntimeSettings
   m_EditorClassIdentifier: 
   _config:
     framesPerSecond: 60
     packetSize: 1200
     packetMaxEventSize: 512
+    packetStreamSize: 4096
     maxEntityPriority: 65536
     maxPropertyPriority: 2048
     scopeMode: 0
-    logTargets: 0
+    logTargets: 3
     disableDejitterBuffer: 0
     clientSendRate: 3
     clientDejitterDelay: 6
@@ -35,41 +36,41 @@ MonoBehaviour:
     commandRedundancy: 6
     commandPingMultiplier: 1.25
     useNetworkSimulation: 0
-    simulatedLoss: 0.02
-    simulatedPingMean: 200
-    simulatedPingJitter: 10
+    simulatedLoss: 0
+    simulatedPingMean: 0
+    simulatedPingJitter: 0
     simulatedRandomFunction: 0
     connectionTimeout: 10000
     connectionRequestTimeout: 500
     connectionRequestAttempts: 20
+    connectionLocalRequestAttempts: 5
     disableAutoSceneLoading: 0
     EnableIPv6: 0
   debugClientCount: 1
-  debugStartPort: 50538
+  debugStartPort: 54321
   debugBuildMode: 1
-  debugStartMapName: SimpleMoveAndShoot_Game
-  debugPlayAsServer: 1
-  showDebugInfo: 0
+  debugStartMapName: 
+  debugPlayAsServer: 0
+  showDebugInfo: 1
   overrideTimeScale: 1
-  debugEditorMode: 0
-  consoleToggleKey: 293
-  consoleVisibleByDefault: 0
+  debugEditorMode: 1
+  consoleToggleKey: 9
+  consoleVisibleByDefault: 1
   compilationWarnLevel: 4
   editorSkin: 4
   scopeModeHideWarningInGui: 0
-  masterServerGameId: 09A20926-601A-4EF4-BFEE-374761B0D2A5
-  showBoltEntityHints: 1
+  showBoltEntityHints: 0
   serializeProjectAsText: 0
   photonAppId: e2e70cd3-3241-4828-bf8f-281a477d3a9c
   photonUsePunch: 1
-  photonCloudRegionIndex: 0
-  instantiateMode: 2
+  photonCloudRegionIndex: 13
+  instantiateMode: 0
   globalEntityBehaviourQueryOption: 3
   globalEntityPriorityCalculatorQueryOption: 3
   globalEntityReplicationFilterQueryOption: 3
   a2sServerPort: 21777
-  enableA2sServer: 0
+  enableA2sServer: 1
   RoomCreateTimeout: 20
   RoomJoinTimeout: 20
   enableClientMetrics: 0
-  enableSourceProvider: 1
+  enableSourceProvider: 0

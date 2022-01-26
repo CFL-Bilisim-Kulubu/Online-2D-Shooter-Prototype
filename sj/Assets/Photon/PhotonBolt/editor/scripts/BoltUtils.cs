@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using Bolt.Editor.Utils;
+using Photon.Bolt.Editor.Utils;
 using UnityEditor;
 using UnityEngine;
 
-namespace Bolt.Utils
+namespace Photon.Bolt.Utils
 {
 	public static class MenuUtililies
 	{
@@ -14,7 +14,7 @@ namespace Bolt.Utils
 
 		// ======= PUBLIC METHODS =====================================================================================
 
-		[MenuItem("Bolt/Utils/Find Missing Scripts", priority = 25)]
+		[MenuItem("Photon Bolt/Utils/Find Missing Scripts", priority = 125)]
 		public static void FindMissingScriptsMenu()
 		{
 			BoltLog.Info("Searching for Missing Scripts");
@@ -24,7 +24,15 @@ namespace Bolt.Utils
 			}
 		}
 
-		[MenuItem("Bolt/Utils/Change DLL Mode", priority = 26)]
+		[MenuItem("Photon Bolt/Utils/Remove Missing Scripts", priority = 126)]
+		public static void RemoveMissingScriptMenu()
+		{
+			BoltLog.Info("Removing Missing Scripts");
+
+			RemoveMissingScripts();
+		}
+
+		[MenuItem("Photon Bolt/Utils/Change DLL Mode", priority = 127)]
 		public static void ChangeDllModeMenu()
 		{
 			var current = BoltNetwork.IsDebugMode ? "Debug" : "Release";
@@ -32,15 +40,15 @@ namespace Bolt.Utils
 
 			var msg = string.Format("Bolt is in {0} mode, want to change to {1}?", current, target);
 
-			if (UnityEditor.EditorUtility.DisplayDialog("Change Bolt DLL Mode", msg, "Yes", "Cancel"))
+			if (EditorUtility.DisplayDialog("Change Bolt DLL Mode", msg, "Yes", "Cancel"))
 			{
 				if (ChangeDllMode())
 				{
-					UnityEngine.Debug.LogFormat("Bolt Mode swiched to {0}.", target);
+					Debug.LogFormat("Bolt Mode swiched to {0}.", target);
 				}
 				else
 				{
-					UnityEngine.Debug.LogError("Error while swithing Bolt Mode, changes were reverted.");
+					Debug.LogError("Error while swithing Bolt Mode, changes were reverted.");
 				}
 			}
 		}
@@ -54,8 +62,8 @@ namespace Bolt.Utils
 
 		public static int FindMissingComponents()
 		{
-			int missingScriptsCount = 0;
-			List<Component> components = new List<Component>();
+			var missingScriptsCount = 0;
+			var components = new List<Component>();
 
 			var folders = new string[] { "Assets" };
 			var iter = AssetDatabase.FindAssets("t:Prefab", folders).GetEnumerator();
@@ -67,7 +75,7 @@ namespace Bolt.Utils
 				var go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
 
 				go.GetComponentsInChildren(true, components);
-				for (int j = 0; j < components.Count; ++j)
+				for (var j = 0; j < components.Count; ++j)
 				{
 					if (components[j] == null)
 					{
@@ -86,6 +94,39 @@ namespace Bolt.Utils
 			return missingScriptsCount;
 		}
 
+		public static void RemoveMissingScripts()
+		{
+			var folders = new string[] { "Assets" };
+			var iter = AssetDatabase.FindAssets("t:Prefab", folders).GetEnumerator();
+
+			while (iter.MoveNext())
+			{
+				var guid = (string)iter.Current;
+				var path = AssetDatabase.GUIDToAssetPath(guid);
+				var go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+
+				var result = RemoveFromGO(go);
+
+				if (result > 0)
+				{
+					BoltLog.Info("Removed scripts from {0}", path);
+				}
+			}
+		}
+
+		private static int RemoveFromGO(GameObject go)
+		{
+			var result = GameObjectUtility.RemoveMonoBehavioursWithMissingScript(go);
+
+			for (int i = 0; i < go.transform.childCount; i++)
+			{
+				var child = go.transform.GetChild(i);
+				result += RemoveFromGO(child.gameObject);
+			}
+
+			return result;
+		}
+
 		private static bool SwitchDebugReleaseMode(bool debug)
 		{
 			var from = debug ? DLL_SUFIX_DEBUG : DLL_SUFIX_RELEASE;
@@ -93,9 +134,9 @@ namespace Bolt.Utils
 
 			var paths = new string[]
 			{
-				BoltPathUtility.BoltDllPath,
-				BoltPathUtility.BoltCompilerDLLPath,
-				BoltPathUtility.BoltEditorDLLPath
+								BoltPathUtility.BoltDllPath,
+								BoltPathUtility.BoltCompilerDLLPath,
+								BoltPathUtility.BoltEditorDLLPath
 			};
 
 			var abort = false;

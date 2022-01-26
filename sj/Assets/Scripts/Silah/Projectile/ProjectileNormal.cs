@@ -1,7 +1,7 @@
-using Bolt;
+using Photon.Bolt;
 using UnityEngine;
 
-public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
+public class ProjectileNormal : Photon.Bolt.EntityBehaviour<IMermi>
 {
     [SerializeField] private GameObject debugObject;
     [SerializeField] private float hiz,hasar,yokolmaSuresi;
@@ -23,7 +23,7 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
     }
     public override void SimulateOwner()
     {
-        state.Pozisyon = t.position += t.right * hiz;
+        state.Position = t.position += t.right * hiz;
           
         RaycastHit hit;
 #if UNITY_EDITOR
@@ -41,7 +41,7 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
     {
         if (!entity.IsOwner)
         {
-            t.position = state.Pozisyon;
+            t.position = state.Position;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -69,15 +69,15 @@ public class ProjectileNormal : Bolt.EntityBehaviour<IMermi>
     {
         ProjectileDamage p = ProjectileDamage.Create();
         p.Damage = hasar;
-        p.Rot = t.right;
+        p.Rotation = t.right;
 
         p.EffectedID = e.state.ID;
         p.EffectiveID = s.state.ID;
 
-        p.EffectedNick = e.state.NICK;
-        p.EffectiveNick = s.state.NICK;
+        p.EffectedNick = e.state.Nick;
+        p.EffectiveNick = s.state.Nick;
         p.Team = takým;
-        p.Silah = silahAd;
+        p.Gun = silahAd;
         p.AreaDamage = false;
 
         Debug.Log(p.EffectedID + " " + p.EffectiveID + " takm:" + takým);

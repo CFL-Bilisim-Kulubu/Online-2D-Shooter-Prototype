@@ -1,9 +1,9 @@
-using Bolt;
+using Photon.Bolt;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
+public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
 {
     public bool takýmlý;
     public int takým;
@@ -33,7 +33,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         state.Color = color;
         #endregion
 
-        state.NICK = PlayerPrefs.GetString("sj");
+        state.Nick = PlayerPrefs.GetString("sj");
         spawnProtection = true;
         base.Initialized();
         if (!entity.IsOwner)
@@ -56,7 +56,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         Color a = state.Color;
         Debug.Log(a);
         m.material.color = a;
-        nick.text = state.NICK;
+        nick.text = state.Nick;
         takým = state.Team; 
         StartCoroutine(Ayarlayici());
     } 
@@ -70,7 +70,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
             p.EffectiveID = IDEffecter;
 
             p.Gun = GunEffecter;
-            p.EffectedNick = state.NICK;
+            p.EffectedNick = state.Nick;
             p.EffectiveNick = NickEffecter;
             p.Send();
         }
@@ -84,7 +84,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     }
     public void changeID()
     {
-        nick.text = state.NICK;
+        nick.text = state.Nick;
         BoltEntity[] e = FindObjectsOfType<BoltEntity>();
         int a = Random.Range(0, 9999999);
         state.ID = a;
@@ -114,19 +114,19 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     {
         base.SimulateOwner();
         state.Velocity = rb.velocity;
-        state.Pozisyon = t.position;
-        state.silahRot = silahTransform.rotation;
+        state.Position = t.position;
+        state.SilahRot = silahTransform.rotation;
     }
     private void FixedUpdate()
     {
         if (!entity.IsOwner)
         {
             rb.velocity = state.Velocity;
-            if (Vector3.Distance(state.Pozisyon, rb.position) > ýþýnlanmaMesafesi)
-                rb.MovePosition(state.Pozisyon);
+            if (Vector3.Distance(state.Position, rb.position) > ýþýnlanmaMesafesi)
+                rb.MovePosition(state.Position);
             else
-                rb.MovePosition(Vector3.Slerp(rb.position, state.Pozisyon, pozisyonLerpHýzý * Time.fixedDeltaTime));
-            silahTransform.rotation = state.silahRot;
+                rb.MovePosition(Vector3.Slerp(rb.position, state.Position, pozisyonLerpHýzý * Time.fixedDeltaTime));
+            silahTransform.rotation = state.SilahRot;
         }
     }
     private IEnumerator Ayarlayici()
@@ -139,7 +139,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
     {
         Debug.Log(a);
         m.material.color = a;
-        nick.text = state.NICK;
+        nick.text = state.Nick;
         takým = state.Team;
     }
 
@@ -149,7 +149,7 @@ public class Senkranizasyon : Bolt.EntityBehaviour<IMain>
         {
             ChangeWeapon c = ChangeWeapon.Create();
             c.ID = state.ID;
-            c.weapon = silah.silahID;
+            c.Weapon = silah.silahID;
             c.Send();
         }
     }

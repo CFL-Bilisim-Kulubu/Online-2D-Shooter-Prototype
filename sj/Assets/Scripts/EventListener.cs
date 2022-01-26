@@ -1,8 +1,8 @@
-using Bolt;
+using Photon.Bolt;
 using UnityEngine;
 using System;
 
-public class EventListener : Bolt.GlobalEventListener
+public class EventListener : Photon.Bolt.GlobalEventListener
 {
     [SerializeField] private Senkranizasyon s;
     [SerializeField] private ÖlümListesi Öl;
@@ -16,7 +16,7 @@ public class EventListener : Bolt.GlobalEventListener
         {
             if(!evnt.AreaDamage)
             {
-                s.Vurul(evnt.Rot * evnt.Damage);
+                s.Vurul(evnt.Rotation * evnt.Damage);
             }
             else
             {
@@ -24,7 +24,7 @@ public class EventListener : Bolt.GlobalEventListener
             }
             s.IDEffecter = evnt.EffectiveID;
             s.NickEffecter = evnt.EffectiveNick;
-            s.GunEffecter = evnt.Silah;
+            s.GunEffecter = evnt.Gun;
         }
     }
     public override void OnEvent(Died evnt)
@@ -57,7 +57,7 @@ public class EventListener : Bolt.GlobalEventListener
         {
             if(sj.state.ID == evnt.ID)
             {
-                sj.SilahModelDeðiþ(evnt.weapon);
+                sj.SilahModelDeðiþ(evnt.Weapon);
             }
         }
     }

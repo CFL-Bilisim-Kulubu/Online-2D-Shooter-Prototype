@@ -267,6 +267,26 @@
             Used when it's necessary to exchange data between managed and unmanaged code
             </summary>
         </member>
+        <member name="F:UdpKit.UdpEndPoint.Native.Address">
+            <summary>
+            Native representation of the IPV4
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpEndPoint.Native.Port">
+            <summary>
+            EndPoint Port
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpEndPoint.Native.AsManaged">
+            <summary>
+            Convert the internal properties into a Managed version of UdpEndPoint
+            </summary>
+        </member>
+        <member name="T:UdpKit.UdpEndPoint.Comparer">
+            <summary>
+            UdpEndPoint comparer
+            </summary>
+        </member>
         <member name="F:UdpKit.UdpEndPoint.Any">
             <summary>
             Represents Any IPv4 Address
@@ -407,6 +427,269 @@
             <param name="b">Second EndPoint</param>
             <returns>Result of AND Operator</returns>
         </member>
+        <member name="T:UdpKit.UdpException">
+            <summary>
+            Represents a custom UdpException
+            </summary>
+        </member>
+        <member name="T:UdpKit.UdpIPv4Address">
+            <summary>
+            Represents a IPv4 Address
+            </summary>
+        </member>
+        <member name="T:UdpKit.UdpIPv4Address.Comparer">
+            <summary>
+            UdpIPv4Address comparer
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Comparer.Instance">
+            <summary>
+            Static instance of the Comparer
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Any">
+            <summary>
+            Represent a IPv4 Any Address 0.0.0.0
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Localhost">
+            <summary>
+            Represents the localhost IPv4 127.0.0.1
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Broadcast">
+            <summary>
+            Represents the broadcast IPv4 255.255.255.255
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Packed">
+            <summary>
+            Stores that 32bit representation address of this IPv4
+            </summary>
+            <example>
+            <code>
+            const string ip = "82.39.106.191"; // original IP
+            var ipBytes = IPAddress.Parse(ip).GetAddressBytes(); // get byte array
+            var ipLong = BitConverter.ToUInt32(ipBytes, 0); // convert to 32bit representation
+            </code>
+            </example>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Byte0">
+            <summary>
+            Stores the 1th 8bit of this address
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Byte1">
+            <summary>
+            Stores the 2th 8bit of this address
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Byte2">
+            <summary>
+            Stores the 3th 8bit of this address
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv4Address.Byte3">
+            <summary>
+            Stores the 4th 8bit of this address
+            </summary>
+        </member>
+        <member name="M:UdpKit.UdpIPv4Address.#ctor(System.UInt32)">
+            <summary>
+            Build a UdpIPv4Address based on the 32bit address representation
+            </summary>
+            <param name="packed">IPv4 into a 32bit format</param>
+        </member>
+        <member name="M:UdpKit.UdpIPv4Address.#ctor(System.Int64)">
+            <summary>
+            Build a UdpIPv4Address based on the 64bit long address in network order
+            </summary>
+            <param name="addr">Address to be used build the UdpIPv4Address</param>
+        </member>
+        <member name="M:UdpKit.UdpIPv4Address.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Build a UdpIPv4Address based on each byte that represents a part of the full IP
+            </summary>
+            <param name="a">1th part of the IP</param>
+            <param name="b">2th part of the IP</param>
+            <param name="c">3th part of the IP</param>
+            <param name="d">4th part of the IP</param>
+        </member>
+        <member name="P:UdpKit.UdpIPv4Address.IsAny">
+            <summary>
+            Signal if this IP represents a Any IP
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv4Address.IsLocalHost">
+            <summary>
+            Signal if this IP represents a Localhost IP
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv4Address.IsBroadcast">
+            <summary>
+            Signal if this IP represents a Broadcast IP
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv4Address.IsPrivate">
+            <summary>
+            Signal if this IP represents a Private IP
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv4Address.IsWan">
+            <summary>
+            Signal if this IP presents a WAN IP
+            </summary>
+        </member>
+        <member name="M:UdpKit.UdpIPv4Address.Parse(System.String)">
+            <summary>
+            Parse a string into a UdpIPv4Address
+            </summary>
+            <param name="address">String address to be parsed</param>
+            <returns>UdpIPv4Address reference based on the IP</returns>
+            <remarks>It will throw FormatException if the address in the string is not propertly formatted</remarks>
+        </member>
+        <member name="T:UdpKit.UdpIPv6Address">
+            <summary>
+            Represents a IPv6 Address
+            </summary>
+        </member>
+        <member name="T:UdpKit.UdpIPv6Address.Comparer">
+            <summary>
+            UdpIPv6Address Comparer
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv6Address.Comparer.Instance">
+            <summary>
+            Comparer instance
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv6Address.Any">
+            <summary>
+            Represents the IPv6 Any address
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv6Address.Mask">
+            <summary>
+            Stores the IPv6 Mask with 16 bytes
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv6Address.Localhost">
+            <summary>
+            Represents the IPv6 Localhost address
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv6Address.Packed0">
+            <summary>
+            Represents the 1th 64bits of the IPv6 Address in long format
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpIPv6Address.Packed1">
+            <summary>
+            Represents the 2th 64bits of the IPv6 Address in long format
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv6Address.IsAny">
+            <summary>
+            Signal if this is Any address, with all address positions as 0
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv6Address.IsLocalHost">
+            <summary>
+            Signal if this is a Localhost address
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv6Address.IsBroadcast">
+            <summary>
+            Signal if this is a broadcast address, always false
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv6Address.IsWan">
+            <summary>
+            Signal if this is a WAN address
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv6Address.IsPrivate">
+            <summary>
+            Signal if this is a private IPv6
+            </summary>
+        </member>
+        <member name="P:UdpKit.UdpIPv6Address.Bytes">
+            <summary>
+            Get the full bytes that makes this IPv6 address
+            </summary>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.#ctor(System.Byte[])">
+            <summary>
+            Build a new UdpIPv6Addressbased on the byte array passed as argument
+            </summary>
+            <param name="address">Byte array with values to build the IPv6 address</param>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.#ctor(System.UInt64,System.UInt64)">
+            <summary>
+            Build a UdpIPv6Address based on the packet values representation
+            </summary>
+            <param name="packed0">1th part of the address</param>
+            <param name="packed1">2th part of the address</param>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.Equals(UdpKit.UdpIPv6Address)">
+            <summary>
+            Check if two UdpIPv6Address are equal
+            </summary>
+            <param name="other">Other UdpIPv6Address to check</param>
+            <returns>True if equal, false otherwise</returns>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.CompareTo(UdpKit.UdpIPv6Address)">
+            <summary>
+            Compare two UdpIPv6Address
+            </summary>
+            <param name="other">Other UdpIPv6Address to compare</param>
+            <returns>1 if this IPv6 is greater, -1 otherwise, 0 if equal</returns>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.GetHashCode">
+            <summary>
+            Build the hash code of this UdpIPv6Address
+            </summary>
+            <returns>int that represents the Hash code for this address</returns>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.Equals(System.Object)">
+            <summary>
+            Check if a object is equals to this UdpIPv6Address
+            </summary>
+            <param name="obj">Object to compare</param>
+            <returns>True if equal, false otherwise</returns>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.op_Equality(UdpKit.UdpIPv6Address,UdpKit.UdpIPv6Address)">
+            <summary>
+            Check if this UdpIPv6Address is equal to another UdpIPv6Address
+            </summary>
+            <param name="x">UdpIPv6Address to compare</param>
+            <param name="y">the UdpIPv6Address counterpart to compare</param>
+            <returns>True if equal, false otherwise</returns>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.op_Inequality(UdpKit.UdpIPv6Address,UdpKit.UdpIPv6Address)">
+            <summary>
+            Check if this UdpIPv6Address is NOT equal to another UdpIPv6Address
+            </summary>
+            <param name="x">UdpIPv6Address to compare</param>
+            <param name="y">the UdpIPv6Address counterpart to compare</param>
+            <returns>True if not equal, false otherwise</returns>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.Parse(System.String)">
+            <summary>
+            Parse a String IP into a UdpIPv6Address
+            </summary>
+            <param name="address">String formatted IP address to be parsed</param>
+            <returns>UdpIPv6Address built based on the IP string</returns>
+            <remarks>Will throw ArgumentException if it's not a valid IP address</remarks>
+        </member>
+        <member name="M:UdpKit.UdpIPv6Address.op_BitwiseAnd(UdpKit.UdpIPv6Address,UdpKit.UdpIPv6Address)">
+            <summary>
+            Apply a AND operator between all bits for both UdpIPv6Address
+            </summary>
+            <param name="a">UdpIPv6Address 1 to merge</param>
+            <param name="b">UdpIPv6Address 2 to merge</param>
+            <returns>A new UdpIPv6Address that results of the AND operation between the pair of UdpIPv6Address</returns>
+        </member>
         <member name="M:UdpKit.NatFeatures.Clone">
             <summary>
             Clone this instance.
@@ -437,6 +720,41 @@
         <member name="F:UdpKit.UdpSessionSource.None">
             <summary>
             None of the other source
+            </summary>
+        </member>
+        <member name="T:UdpKit.UdpSessionError">
+            <summary>
+            Udp Session Error Enum
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpSessionError.Ok">
+            <summary>
+            OK
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpSessionError.GameIdAlreadyExists">
+            <summary>
+            A game with same ID already exists
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpSessionError.GameFull">
+            <summary>
+            The game server is full
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpSessionError.GameClosed">
+            <summary>
+            The game server is closed
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpSessionError.GameDoesNotExist">
+            <summary>
+            The game with the ID was not found
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpSessionError.Error">
+            <summary>
+            Generic error
             </summary>
         </member>
         <member name="T:UdpKit.UdpSession">
@@ -523,6 +841,13 @@
             This class represents a session that can be used as starting point for a connection when Direct IP
             connection is not available.
             </summary>
+        </member>
+        <member name="M:UdpKit.UdpSessionImpl.Build(System.String)">
+            <summary>
+            Build a new UdpSession based on the Host ID string
+            </summary>
+            <param name="hostID">Host ID, just an string that identify the source of the session</param>
+            <returns>UdpSession reference</returns>
         </member>
         <member name="P:UdpKit.UdpSessionImpl.Id">
             <summary>
@@ -611,6 +936,22 @@
             </summary>
             <param name="id">Identifier.</param>
         </member>
+        <member name="T:UdpKit.Singleton`1">
+            <summary>
+            Represents a Singleton instance, just for Utility
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:UdpKit.Singleton`1.instanceLock">
+            <summary>
+            Instance lock
+            </summary>
+        </member>
+        <member name="P:UdpKit.Singleton`1.Instance">
+            <summary>
+            Public instance reference
+            </summary>
+        </member>
         <member name="T:UdpKit.UdpSessionFillMode">
             <summary>
             Determines how the Sessions are filled with new players
@@ -643,6 +984,11 @@
             Default is <see cref="F:UdpKit.UdpSessionFillMode.Fill"/>.
             </summary>
         </member>
+        <member name="M:UdpKit.UdpSessionFilter.#ctor">
+            <summary>
+            UdpSession filter constructor
+            </summary>
+        </member>
         <member name="M:UdpKit.UdpSessionFilter.Add(System.String,System.Object)">
             <summary>
             Adds a filter parameter.
@@ -665,12 +1011,124 @@
             <param name="key">Parameter Key</param>
             <returns>Parameter Value, if exists</returns>
         </member>
+        <member name="M:UdpKit.UdpSessionFilter.GetEnumerator">
+            <summary>
+            Get a Enumerator reference based on the internal Filter dictionary
+            </summary>
+            <returns>Dictionary.Enumerator reference</returns>
+        </member>
+        <member name="M:UdpKit.UdpSessionFilter.ToString">
+            <summary>
+            String representation of the SessionFilter
+            </summary>
+            <returns>String representation</returns>
+        </member>
         <member name="M:UdpKit.UdpSessionFilter.IsValid(System.Object)">
             <summary>
             Test if the object passed as argument is a valid Type to be used as filter parameter
             </summary>
             <param name="value">Value to be tested</param>
             <returns><c>true</c> if is a valid Type, <c>false</c> otherwise</returns>
+        </member>
+        <member name="T:UdpKit.Utils.IPAddressExtensions">
+            <summary>
+            Set of IPAddress extension methods
+            </summary>
+        </member>
+        <member name="M:UdpKit.Utils.IPAddressExtensions.GetBroadcastAddress(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Extract the Broadcast address from an IP based on the sub-net mask
+            </summary>
+            <param name="address">Base Address</param>
+            <param name="subnetMask">Subnet Mark</param>
+            <returns>Broadcast address of the network</returns>
+        </member>
+        <member name="M:UdpKit.Utils.IPAddressExtensions.GetNetworkAddress(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Get the base IP address based on the Subnet mask
+            </summary>
+            <param name="address">IP address to verify</param>
+            <param name="subnetMask">Subnet mask</param>
+            <returns>Base IP</returns>
+        </member>
+        <member name="M:UdpKit.Utils.IPAddressExtensions.IsInSameSubnet(System.Net.IPAddress,System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Check if two IP seems to be on the same subnet based on the sub-net mask
+            </summary>
+            <param name="address2">Base address to check</param>
+            <param name="address">Target address to check</param>
+            <param name="subnetMask">Subnet mask used for the check</param>
+            <returns>True if both IPs seems to be on the same subnet</returns>
+        </member>
+        <member name="M:UdpKit.Utils.IPAddressExtensions.IsInSameSubnet(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Check if two IP seems to be on the same subnet based on all major classes of Submask
+            </summary>
+            <param name="address2">Base address to check</param>
+            <param name="address">Target address to check</param>
+            <returns>True if both IPs seems to be on the same subnet in at least one case</returns>
+        </member>
+        <member name="M:UdpKit.Utils.IPAddressExtensions.IsPrivate(System.Net.IPAddress)">
+            <summary>
+            Check if a IPAdress describes a private IP
+            </summary>
+            <param name="address">IPAdress to check</param>
+            <returns>True if it is private, false otherwise</returns>
+        </member>
+        <member name="M:UdpKit.Utils.IPAddressExtensions.ToLong(System.Net.IPAddress)">
+            <summary>
+            Converts a IPAddress into the long representation of the internal IP
+            </summary>
+            <param name="address">IPAddress to be converted</param>
+            <returns>long representation of the IPAddress</returns>
+        </member>
+        <member name="M:UdpKit.Utils.IPAddressExtensions.FromLongAddr(System.Int64)">
+            <summary>
+            Convert a Long value into a IPAddress
+            </summary>
+            <param name="addr">Value to convert</param>
+            <returns>IPAddres Result</returns>
+        </member>
+        <member name="T:UdpKit.Utils.SubnetMask">
+            <summary>
+            Class to store and represents IP Submasks
+            </summary>
+        </member>
+        <member name="F:UdpKit.Utils.SubnetMask.ClassA">
+            <summary>
+            Represents a Class A subnet
+            </summary>
+        </member>
+        <member name="F:UdpKit.Utils.SubnetMask.ClassB">
+            <summary>
+            Represents a Class B subnet
+            </summary>
+        </member>
+        <member name="F:UdpKit.Utils.SubnetMask.ClassC">
+            <summary>
+            Represents a Class C subnet
+            </summary>
+        </member>
+        <member name="M:UdpKit.Utils.SubnetMask.CreateByHostBitLength(System.Int32)">
+            <summary>
+            Create a Submask based on the number of bits for the HOST
+            </summary>
+            <param name="hostpartLength">Number of bit of the host part</param>
+            <returns>IPAddress that represents the network mask</returns>
+        </member>
+        <member name="M:UdpKit.Utils.SubnetMask.CreateByNetBitLength(System.Int32)">
+            <summary>
+            Create a Subnet mask based on the number of bits for the MASK
+            </summary>
+            <param name="netpartLength">Number of bit of the sub net mask</param>
+            <returns>IPAddress that represents the network mask</returns>
+        </member>
+        <member name="M:UdpKit.Utils.SubnetMask.CreateByHostNumber(System.Int32)">
+            <summary>
+            Create a subnet mask based on the number of hosts that need to be available
+            </summary>
+            <param name="numberOfHosts">Number of host in the subnet</param>
+            <returns>IPAddress that represents the network mask</returns>
         </member>
         <member name="T:UdpKit.Utils.UdpEndPointExtensions">
              <summary>
@@ -693,19 +1151,19 @@
             <param name="endpoint">IPEndPoint to be converted</param>
             <returns>UdpEndPoint</returns>
         </member>
-        <member name="M:UdpKit.Utils.UdpEndPointExtensions.ConvertToUdpIPv4Address(System.Net.IPAddress)">
-            <summary>
-            Convert <see cref="T:System.Net.IPAddress"/> to <see cref="T:UdpKit.UdpIPv4Address"/>
-            </summary>
-            <param name="address">IPAddress to be converted</param>
-            <returns>UdpIPv4Address</returns>
-        </member>
         <member name="M:UdpKit.Utils.UdpEndPointExtensions.ConvertToIPEndPoint(UdpKit.UdpEndPoint)">
             <summary>
             Convert <see cref="T:UdpKit.UdpEndPoint"/> to <see cref="T:System.Net.IPAddress"/>
             </summary>
             <param name="endpoint">UdpEndPoint to be converted</param>
             <returns>IPEndPoint</returns>
+        </member>
+        <member name="M:UdpKit.Utils.UdpEndPointExtensions.ConvertToUdpIPv4Address(System.Net.IPAddress)">
+            <summary>
+            Convert <see cref="T:System.Net.IPAddress"/> to <see cref="T:UdpKit.UdpIPv4Address"/>
+            </summary>
+            <param name="address">IPAddress to be converted</param>
+            <returns>UdpIPv4Address</returns>
         </member>
     </members>
 </doc>

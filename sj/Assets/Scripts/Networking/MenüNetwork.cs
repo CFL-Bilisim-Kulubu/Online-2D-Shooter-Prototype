@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Bolt.Matchmaking;
+using Photon.Bolt.Matchmaking;
+using Photon.Bolt;
 using TMPro;
 using UdpKit;
 using UdpKit.Platform.Photon;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenüNetwork : Bolt.GlobalEventListener
+public class MenüNetwork : Photon.Bolt.GlobalEventListener
 {
     [SerializeField] private GameObject autoDisconnect;
     [Header("Server Açma", order = 1)]

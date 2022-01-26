@@ -2,8 +2,10 @@ using System;
 using UdpKit;
 using UdpKit.Platform.Photon;
 using UnityEngine;
+using Photon.Bolt;
+using Photon.Bolt.Utils;
 
-public class NetworkCallbacks : Bolt.GlobalEventListener
+public class NetworkCallbacks : Photon.Bolt.GlobalEventListener
 {
     private enum State
     {

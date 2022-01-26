@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
+using Photon.Bolt.Utils;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace BoltInternal
+namespace Photon.Bolt.Internal
 {
 	public class UnityDebugDrawer : IDebugDrawer
 	{
@@ -46,7 +47,7 @@ namespace BoltInternal
 			}
 #endif
 
-			Bolt.DebugInfo.Label(text);
+			DebugInfo.Label(text);
 		}
 
 		void IDebugDrawer.LabelBold(string text)
@@ -59,7 +60,7 @@ namespace BoltInternal
 			}
 #endif
 
-			Bolt.DebugInfo.LabelBold(text);
+			DebugInfo.LabelBold(text);
 		}
 
 		void IDebugDrawer.LabelField(string text, object value)
@@ -72,7 +73,7 @@ namespace BoltInternal
 			}
 #endif
 
-			Bolt.DebugInfo.LabelField(text, value);
+			DebugInfo.LabelField(text, value);
 		}
 
 		void IDebugDrawer.Separator()

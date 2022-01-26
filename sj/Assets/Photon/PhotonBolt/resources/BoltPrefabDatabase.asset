@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 763834002, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Script: {fileID: -1148507213, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
   m_Name: BoltPrefabDatabase
   m_EditorClassIdentifier: 
   DatabaseMode: 0
   Prefabs:
   - {fileID: 0}
-  - {fileID: 3951590148835962477, guid: 26888ec008764b84296c63cfe640adf8, type: 3}
-  - {fileID: 1747043412135745472, guid: a8aa271f562f5074a8577ef2a3695d73, type: 3}
-  - {fileID: 1747043412135745472, guid: 9e428f59996b91e40ab1d4b664d0d7c3, type: 3}
-  - {fileID: 9016641917050405182, guid: 93183c77499abe646b90d674f8e2b2ac, type: 3}
-  - {fileID: 1108411468336604260, guid: 116b64db48333f34f966f943dc81bfb0, type: 3}
-  - {fileID: 1747043412135745472, guid: 83140faa001240b4f825195d05d27763, type: 3}
   SearchPaths: []

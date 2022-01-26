@@ -4,6 +4,41 @@
         <name>udpkit</name>
     </assembly>
     <members>
+        <member name="T:UdpKit.Collections.ObjectPool`1">
+            <summary>
+            Represents a simple Object Pool manager
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:UdpKit.Collections.ObjectPool`1._pool">
+            <summary>
+            Internal Object Pool
+            </summary>
+        </member>
+        <member name="P:UdpKit.Collections.ObjectPool`1.Available">
+            <summary>
+            Check if the Pool has any Pooled Object
+            </summary>
+            <returns>True if there is any object to be reused on the pool</returns>
+        </member>
+        <member name="M:UdpKit.Collections.ObjectPool`1.#ctor">
+            <summary>
+            Object Pool Constructor
+            </summary>
+        </member>
+        <member name="M:UdpKit.Collections.ObjectPool`1.Return(`0)">
+            <summary>
+            Returns an instance to the Object Pool
+            </summary>
+            <param name="obj">Object to the returned to Pool</param>
+        </member>
+        <member name="M:UdpKit.Collections.ObjectPool`1.Get">
+            <summary>
+            Returns a valid reference from the Pool.
+            If there is a old object on the Pool, returns it, if not, create a new one.
+            </summary>
+            <returns>Reference from the Object Pool</returns>
+        </member>
         <member name="T:UdpKit.Security.HMACPacketValidator">
             <summary>
             Responsible to create and validate Hashs
@@ -233,6 +268,7 @@
             <param name="buffer">Data array to be processed</param>
             <param name="length">Data array length</param>
             <param name="cryptoTransform">Crypto transform reference</param>
+            <param name="memoryBuffer">Buffer used as temporary memory for to process</param>
             <returns>Length of data array after the transformation</returns>
         </member>
         <member name="M:UdpKit.Security.DataEncryptor.CypherDataAlloc(System.Byte[],System.Int32,System.Security.Cryptography.ICryptoTransform)">
@@ -543,11 +579,12 @@
             <param name="endpoint">The endpoint to connect to</param>
             <param name="token"></param>
         </member>
-        <member name="M:UdpKit.UdpSocket.CancelConnect(UdpKit.UdpEndPoint)">
+        <member name="M:UdpKit.UdpSocket.CancelConnect(UdpKit.UdpEndPoint,System.Boolean)">
             <summary>
             Cancel ongoing attempt to connect to endpoint
             </summary>
             <param name="endpoint">The endpoint to cancel connect attempt to</param>
+            <param name="internalOnly">Signal if the cancel should be </param>
         </member>
         <member name="M:UdpKit.UdpSocket.Accept(UdpKit.UdpEndPoint,System.Object,System.Byte[])">
             <summary>
@@ -883,6 +920,11 @@
             How many attempts we should make to connect before failing, default: 5
             </summary>
         </member>
+        <member name="F:UdpKit.UdpConfig.ConnectRequestLANAttempts">
+            <summary>
+            How many attempts we should make to connect before failing, default: 5
+            </summary>
+        </member>
         <member name="F:UdpKit.UdpConfig.ConnectionTimeout">
             <summary>
             How long before we time-out a connection we have not heard anything from, default: 5000 (ms)
@@ -897,21 +939,6 @@
         <member name="F:UdpKit.UdpConfig.RecvWithoutAckLimit">
             <summary>
             How many packets we can receive before we force an ack packet to be sent, default: 8
-            </summary>
-        </member>
-        <member name="F:UdpKit.UdpConfig.SimulatedLoss">
-            <summary>
-            How many % of the packets we should drop to simulate packet loss, default: 0. Only used in DEBUG builds.
-            </summary>
-        </member>
-        <member name="F:UdpKit.UdpConfig.SimulatedPingMin">
-            <summary>
-            Min ping we should simulate, default: 0 (ms). Only used in DEBUG builds.
-            </summary>
-        </member>
-        <member name="F:UdpKit.UdpConfig.SimulatedPingMax">
-            <summary>
-            Max ping we should simulate, default: 0 (ms). Only used in DEBUG builds.
             </summary>
         </member>
         <member name="F:UdpKit.UdpConfig.ConnectionLimit">
@@ -934,6 +961,21 @@
             If we allow clients which are connecting to a server to implicitly accept the connection
             if we get a non-rejected and non-accepted packet from the server, meaning the accept packet
             was lost, default: true
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpConfig.SimulatedLoss">
+            <summary>
+            How many % of the packets we should drop to simulate packet loss, default: 0. Only used in DEBUG builds.
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpConfig.SimulatedPingMin">
+            <summary>
+            Min ping we should simulate, default: 0 (ms). Only used in DEBUG builds.
+            </summary>
+        </member>
+        <member name="F:UdpKit.UdpConfig.SimulatedPingMax">
+            <summary>
+            Max ping we should simulate, default: 0 (ms). Only used in DEBUG builds.
             </summary>
         </member>
         <member name="F:UdpKit.UdpConfig.NoiseFunction">
@@ -1101,7 +1143,7 @@
         <member name="M:UdpKit.Async.Task.ForceAbort">
             <summary>
             Force Abort the internal Thread.
-            This causes the Thread to be aborted using <see cref="M:System.Threading.Thread.Abort(System.Object)"/>
+            This causes the Thread to be aborted using <see cref="M:System.Threading.Thread.Abort"/>
             </summary>
         </member>
         <member name="M:UdpKit.Async.Task.Runner">

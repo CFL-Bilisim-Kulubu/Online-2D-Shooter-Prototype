@@ -1,3 +1,57 @@
+1.3.1
+
+Added: Option to use a custom STUN Server when setting up the Photon Platform.
+Added: Turkey Region to Region List.
+
+Changed: Stream Package Size restricted to 1200 bytes in order to avoid package fragmentation. Defaults to 1024 bytes.
+Changed: Soft disconnect when data packages contain serialization errors. Bolt will only disconnect peers with a high number of accumulated errors.
+Changed: Assembly Loading system. Bolt will now skip most irrelevant assemblies when looking for GlobalEventListeners.
+Changed: Realtime SDK to version v4.1.6.6.
+
+Fixed: Bolt Default Settings.
+Fixed: Random disconnects when using Commands Delta Compression.
+Fixed: Multi-Join Room Request errors.
+Fixed: Memory leak when using Instant Commands.
+Fixed: Memory allocated by unsent events after Bolt shutdown.
+Fixed: Delay to disconnect Relayed clients.
+Fixed: Disconnect timeout if PhotonPlatform is initialized mid-gameplay.
+Fixed: Loading Unknown Assemblies causing exceptions.
+Fixed: Update Session firing the callback with old data.
+Fixed: Relay Fallback not working properly.
+Fixed: STUN Servers Resolution.
+Fixed: Starting Bolt from a Shutdown callback does not work.
+Fixed: Session Update callback firing with old data.
+Fixed: Fallback to Relay connections.
+
+1.3.0
+
+Added: Cache for incoming/outcoming EndPoints, in order to reduce memory allocation when sending/receiving data from the internal sockets.
+Added: Cache for Assemblies in the project for quick loading GlobalEventListener after a restart.
+Added: New property in the Bolt Settings to control the Stream Package Size.
+Added: Object pooling for data blocks used by the Stream System, in order to reduce memory allocations.
+Added: BoltNetwork.FindConnection to retrieve a Connection reference based on the Connection ID. Works only if the peer contains the Connection on the internal list.
+
+Changed: Complete refactor of Bolt namespaces [breaking change].
+Changed: Minimal supported Unity version is now 2019.4 LTS.
+Changed: Realtime SDK to version v4.1.5.4.
+Changed: Major refactoring on NAT Punch System.
+Changed: Bolt SDK now targets .NET Framework 4.6.2, meaning that your Unity project must support this target (.NET 4.x or .NET Standard 2.0).
+Changed: Refactor in the Stream System to reduced memory allocations.
+Changed: Entity Proxy creation request behavior. Instead of a request on every package, now it waits for a confirmation or a lost package to re-send the request.
+Changed: Auto registration of PhotonRoomProperties Protocol Token.
+Changed: Exception will be raised if two or more Prefabs share the same name.
+Changed: Review Prefab Database Loading Async Process, Prefabs can be loaded asynchronously before starting Bolt.
+
+Fixed: NullReference Exception when passing an invalid Session reference to Matchmaking Join.
+Fixed: NullReference when Shutdown Bolt in SinglePlayer mode.
+Fixed: IndexException if more than 32 hitboxes (max) are registered on a single entity.
+Fixed: Using specific IPv4 passed as an argument when starting Bolt, instead of using the one from the first valid network adapter.
+Fixed: Invalid Operation check when creating or joining a session.
+Fixed: Exception in Log System when running Bolt in non-English systems.
+
+Removed: Obsolete methods from GlobalEventListener.
+Removed: Outdated plugins from the SDK package.
+
 1.2.14
 
 Added: Help links to Bolt Settings window.

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using Bolt.Matchmaking;
+using Photon.Bolt.Matchmaking;
+using Photon.Bolt;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -54,7 +55,7 @@ public class OyuncuListesi : MonoBehaviour
         {
             if (!entity.StateIs<IMain>())
                 return;
-            string text = entity.GetState<IMain>().NICK + " " + entity.GetState<IMain>().Kill + " " + entity.GetState<IMain>().Death; // nick verisini çekiyorum manuel olarak
+            string text = entity.GetState<IMain>().Nick + " " + entity.GetState<IMain>().Kill + " " + entity.GetState<IMain>().Death; // nick verisini çekiyorum manuel olarak
 
             // oyuncu listesini buton yaptım ilerde tıklayarak kick vote açma falan eklicem
             GameObject oluşturulanButon = Instantiate(butonPrefab, content);

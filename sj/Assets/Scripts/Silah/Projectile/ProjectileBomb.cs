@@ -1,7 +1,7 @@
-using Bolt;
+using Photon.Bolt;
 using UnityEngine;
 
-public class ProjectileBomb : Bolt.EntityBehaviour<IMermi>
+public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
 {
     [SerializeField] private GameObject debugObject,patlamaInstance;
     [SerializeField] private float hiz, hasar, yokolmaSuresi,alan;
@@ -23,7 +23,7 @@ public class ProjectileBomb : Bolt.EntityBehaviour<IMermi>
     }
     public override void SimulateOwner()
     {
-        state.Pozisyon = t.position += t.right * hiz;
+        state.Position = t.position += t.right * hiz;
 
         RaycastHit hit;
 #if UNITY_EDITOR
@@ -41,7 +41,7 @@ public class ProjectileBomb : Bolt.EntityBehaviour<IMermi>
     {
         if (!entity.IsOwner)
         {
-            t.position = Vector3.Slerp(t.position, state.Pozisyon,Time.deltaTime);
+            t.position = Vector3.Slerp(t.position, state.Position,Time.deltaTime);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -74,15 +74,15 @@ public class ProjectileBomb : Bolt.EntityBehaviour<IMermi>
     {
         ProjectileDamage p = ProjectileDamage.Create();
         p.Damage = hasar;
-        p.Rot = t.right;
+        p.Rotation = t.right;
 
         p.EffectedID = e.state.ID;
         p.EffectiveID = s.state.ID;
 
-        p.EffectedNick = e.state.NICK;
-        p.EffectiveNick = s.state.NICK;
+        p.EffectedNick = e.state.Nick;
+        p.EffectiveNick = s.state.Nick;
         p.Team = 999999999;
-        p.Silah = silahAd;
+        p.Gun = silahAd;
         p.AreaDamage = true;
         p.Area = alan;
         p.Position = transform.position;
