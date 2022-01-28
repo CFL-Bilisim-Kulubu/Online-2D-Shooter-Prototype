@@ -7,13 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1742716247083632329, guid: 26888ec008764b84296c63cfe640adf8, type: 3}
+      propertyPath: _prefabId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2212008714249145525, guid: 26888ec008764b84296c63cfe640adf8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3951590148835962477, guid: 26888ec008764b84296c63cfe640adf8, type: 3}
       propertyPath: m_Name
-      value: PlayerBoyut
+      value: PlayerBoyut Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3951590148835962481, guid: 26888ec008764b84296c63cfe640adf8, type: 3}
       propertyPath: m_RootOrder

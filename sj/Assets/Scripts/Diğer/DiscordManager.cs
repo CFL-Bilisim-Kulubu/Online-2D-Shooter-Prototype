@@ -11,7 +11,11 @@ public class DiscordManager : MonoBehaviour
     {
         discord = new Discord.Discord(864101586900877322, (ulong)CreateFlags.Default);
         activityManager = discord.GetActivityManager();
+#if UNITY_EDITOR
+        UpdatePresence(info, "Debugging mode: on, editing some scripts...");
+#else
         UpdatePresence(info, state);
+#endif
     }
 
     private void Update() => discord.RunCallbacks();

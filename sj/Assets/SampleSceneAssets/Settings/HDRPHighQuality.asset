@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf1dab834d4ec34195b920ea7bbf9ec, type: 3}
-  m_Name: HDRPMediumQuality
+  m_Name: HDRPHighQuality
   m_EditorClassIdentifier: 
   m_Version: 18
   m_ObsoleteFrameSettings:
@@ -207,7 +207,7 @@ MonoBehaviour:
       m_Values: 140000002800000050000000
       m_SchemaId:
         m_Id: With3Levels
-    supportVolumetrics: 1
+    supportVolumetrics: 0
     supportLightLayers: 1
     lightLayerName0: Light LayerDefault
     lightLayerName1: InteriorOnly

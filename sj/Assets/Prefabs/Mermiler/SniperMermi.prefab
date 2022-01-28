@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1747043412135745474}
   - component: {fileID: 1747043412135745475}
   - component: {fileID: 1747043412135745479}
-  - component: {fileID: -5140308206751492432}
+  - component: {fileID: 7933055859951525545}
   m_Layer: 0
   m_Name: SniperMermi
   m_TagString: Untagged
@@ -116,7 +116,7 @@ MonoBehaviour:
   silahAd: M107
   t: {fileID: 1747043412135745476}
   s: {fileID: 0}
---- !u!114 &-5140308206751492432
+--- !u!114 &7933055859951525545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,12 +125,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1747043412135745472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -36112512, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Script: {fileID: 155943207, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneGuid: 
-  _serializerGuid: 9d3b6796-9e04-43a5-b97c-33de2ebc7769
-  _prefabId: 6
+  _serializerGuid: 0f3c26ae-3b2f-4b13-b321-ac86f7a81f26
+  _prefabId: 7
   _updateRate: 1
   _autoFreezeProxyFrames: 0
   _clientPredicted: 1

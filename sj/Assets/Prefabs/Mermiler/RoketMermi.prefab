@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1108411468336604261}
-  - component: {fileID: 1108411468336604251}
   - component: {fileID: 1108411468336604250}
   - component: {fileID: 6511140970210849060}
+  - component: {fileID: 3748368197470558368}
   m_Layer: 0
   m_Name: RoketMermi
   m_TagString: Untagged
@@ -34,35 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1108411468336604251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108411468336604260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -36112512, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneGuid: 
-  _serializerGuid: 9d3b6796-9e04-43a5-b97c-33de2ebc7769
-  _prefabId: 5
-  _updateRate: 1
-  _autoFreezeProxyFrames: 0
-  _clientPredicted: 1
-  _allowInstantiateOnClient: 1
-  _persistThroughSceneLoads: 0
-  _sceneObjectDestroyOnDetach: 1
-  _sceneObjectAutoAttach: 1
-  _alwaysProxy: 0
-  _detachOnDisable: 1
-  _allowFirstReplicationWhenFrozen: 0
-  _autoRemoveChildEntities: 0
-  _entityBehaviourQueryOption: 0
-  _entityPriorityCalculatorQueryOption: 1
-  _entityReplicationFilterQueryOption: 1
 --- !u!114 &1108411468336604250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +68,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.18, z: 0.12}
   m_Center: {x: 0.84, y: 0, z: 0}
+--- !u!114 &3748368197470558368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108411468336604260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 155943207, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneGuid: 
+  _serializerGuid: 0f3c26ae-3b2f-4b13-b321-ac86f7a81f26
+  _prefabId: 6
+  _updateRate: 1
+  _autoFreezeProxyFrames: 0
+  _clientPredicted: 1
+  _allowInstantiateOnClient: 1
+  _persistThroughSceneLoads: 0
+  _sceneObjectDestroyOnDetach: 1
+  _sceneObjectAutoAttach: 1
+  _alwaysProxy: 0
+  _detachOnDisable: 1
+  _allowFirstReplicationWhenFrozen: 0
+  _autoRemoveChildEntities: 0
+  _entityBehaviourQueryOption: 0
+  _entityPriorityCalculatorQueryOption: 1
+  _entityReplicationFilterQueryOption: 1
 --- !u!1001 &1108411469276971850
 PrefabInstance:
   m_ObjectHideFlags: 0

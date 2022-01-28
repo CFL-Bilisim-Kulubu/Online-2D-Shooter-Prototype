@@ -59,7 +59,7 @@ MonoBehaviour:
     max: 20
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: 16
     min: 2
 --- !u!114 &-2223948172287066284
 MonoBehaviour:

@@ -969,9 +969,9 @@ GameObject:
   - component: {fileID: 3951590148835962482}
   - component: {fileID: 4019443593372782040}
   - component: {fileID: 3253136316571668245}
-  - component: {fileID: 6349434502598162230}
   - component: {fileID: 7447868105831871508}
   - component: {fileID: 4184150663526658651}
+  - component: {fileID: 1742716247083632329}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -1363,35 +1363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   s: {fileID: 4019443593372782040}
   "\xD6l": {fileID: 0}
---- !u!114 &6349434502598162230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3951590148835962477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -36112512, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneGuid: 
-  _serializerGuid: cb7ce18d-7926-403d-bb66-99b2f6d991f2
-  _prefabId: 1
-  _updateRate: 1
-  _autoFreezeProxyFrames: 0
-  _clientPredicted: 1
-  _allowInstantiateOnClient: 1
-  _persistThroughSceneLoads: 0
-  _sceneObjectDestroyOnDetach: 1
-  _sceneObjectAutoAttach: 1
-  _alwaysProxy: 0
-  _detachOnDisable: 1
-  _allowFirstReplicationWhenFrozen: 0
-  _autoRemoveChildEntities: 0
-  _entityBehaviourQueryOption: 0
-  _entityPriorityCalculatorQueryOption: 1
-  _entityReplicationFilterQueryOption: 1
 --- !u!114 &7447868105831871508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,6 +1397,35 @@ MonoBehaviour:
   - {fileID: 5656820904010495804}
   - {fileID: 7270125953515766982}
   debug: 0
+--- !u!114 &1742716247083632329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3951590148835962477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 155943207, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneGuid: 
+  _serializerGuid: f44a4b18-2e18-42e9-95a1-f26fc5d94d11
+  _prefabId: 1
+  _updateRate: 1
+  _autoFreezeProxyFrames: 0
+  _clientPredicted: 1
+  _allowInstantiateOnClient: 1
+  _persistThroughSceneLoads: 0
+  _sceneObjectDestroyOnDetach: 1
+  _sceneObjectAutoAttach: 1
+  _alwaysProxy: 0
+  _detachOnDisable: 1
+  _allowFirstReplicationWhenFrozen: 0
+  _autoRemoveChildEntities: 0
+  _entityBehaviourQueryOption: 0
+  _entityPriorityCalculatorQueryOption: 1
+  _entityReplicationFilterQueryOption: 1
 --- !u!1 &3951590149215847054
 GameObject:
   m_ObjectHideFlags: 0
