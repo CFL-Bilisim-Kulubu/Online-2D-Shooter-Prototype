@@ -52,7 +52,9 @@ MonoBehaviour:
   hasar: 450
   yokolmaSuresi: 2
   alan: 20
+  yercekimiKatsayisi: 0.001
   silahAd: RPG
+  yercekimi: 0
   t: {fileID: 1108411468336604261}
   s: {fileID: 0}
 --- !u!65 &6511140970210849060

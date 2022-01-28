@@ -4,8 +4,10 @@ using UnityEngine;
 public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
 {
     [SerializeField] private GameObject debugObject,patlamaInstance;
-    [SerializeField] private float hiz, hasar, yokolmaSuresi,alan;
+    [SerializeField] private float hiz, hasar, yokolmaSuresi,alan, yercekimiKatsayisi;
     [SerializeField] private string silahAd;
+    [SerializeField] private bool yercekimi;
+    private float yc;
     private int takým;
     [SerializeField] private Transform t;
     public Senkranizasyon s;
@@ -41,7 +43,15 @@ public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
     {
         if (!entity.IsOwner)
         {
-            t.position = Vector3.Slerp(t.position, state.Position,Time.deltaTime);
+            t.position = state.Position;
+        }
+        else
+        {
+            if (yercekimi)
+            {
+                yc += yercekimiKatsayisi;
+                t.position += new Vector3(0, -yc, 0);
+            }
         }
     }
     private void OnTriggerEnter(Collider other)

@@ -27,8 +27,8 @@ public class OyuncuListesi : MonoBehaviour
     {
         açıkmı = context.ReadValueAsButton();
         oyuncuListesi.SetActive(açıkmı);
+        UpdateList();
     }
-
     private void Update()
     {
         mevcutSüre += Time.deltaTime;
@@ -49,6 +49,9 @@ public class OyuncuListesi : MonoBehaviour
     }
     private void UpdateList()
     {
+#if UNITY_EDITOR
+        print("Oyuncu listesi güncellendi");
+#endif
         ResetList();
 
         foreach (BoltEntity entity in FindObjectsOfType<BoltEntity>())

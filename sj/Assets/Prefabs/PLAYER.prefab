@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4737e7383a18149929679c3de335af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "yenilemeS\xFCresi": 0.5
+  "yenilemeS\xFCresi": 5
   oyuncuListesi: {fileID: 8153485706367177217}
   content: {fileID: 6930569985389822444}
   butonPrefab: {fileID: 460381211073646989, guid: a39f58bc43326c546b5bbf6b7df6a70a, type: 3}
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggle:
   - {fileID: 4747246497640006690}
-  toggl: 1
+  toggl: 0
 --- !u!1 &2469523950494722548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,7 +1852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7668848905803562651
 RectTransform:
   m_ObjectHideFlags: 0
