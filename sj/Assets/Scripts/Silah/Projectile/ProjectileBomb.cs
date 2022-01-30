@@ -56,6 +56,8 @@ public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Bomba"))
+            return;
         BoltNetwork.Instantiate(patlamaInstance, this.transform.position, Quaternion.identity);
         if (s.gameObject.GetComponent<DebugPlayer>().debug)
         {

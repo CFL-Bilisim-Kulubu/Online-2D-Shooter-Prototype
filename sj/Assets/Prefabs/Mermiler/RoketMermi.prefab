@@ -53,7 +53,7 @@ MonoBehaviour:
   yokolmaSuresi: 2
   alan: 20
   yercekimiKatsayisi: 0.001
-  silahAd: RPG
+  silahAd: Roket Atar
   yercekimi: 0
   t: {fileID: 1108411468336604261}
   s: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneGuid: 
   _serializerGuid: 0f3c26ae-3b2f-4b13-b321-ac86f7a81f26
-  _prefabId: 6
+  _prefabId: 9
   _updateRate: 1
   _autoFreezeProxyFrames: 0
   _clientPredicted: 1

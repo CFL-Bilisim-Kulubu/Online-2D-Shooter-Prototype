@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 5565276484788170252}
   - component: {fileID: 5565276484788170253}
   - component: {fileID: 5565276484788170251}
+  - component: {fileID: 5565276486479225705}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -199,8 +200,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134a095004f17f546b167312c7ab3f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "Tak\u0131mRengi": []
+  "Tak\u0131ml\u0131": 0
   spawnArea: {fileID: 5565276484788170253}
   playerPrefab: {fileID: 3951590148835962477, guid: 26888ec008764b84296c63cfe640adf8, type: 3}
+--- !u!114 &5565276486479225705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565276484788170254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f263748ed8a1a6641b5a0a7275cacb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5565276485654249048
 GameObject:
   m_ObjectHideFlags: 0

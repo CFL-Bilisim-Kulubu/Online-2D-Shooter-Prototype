@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Yer
   - HareketliKamera
+  - Bomba
+  - Crate
   layers:
   - Default
   - TransparentFX

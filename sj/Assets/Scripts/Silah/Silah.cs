@@ -64,6 +64,10 @@ public class Silah : MonoBehaviour
                     a.GetComponent<ProjectileBomb>().Takým();
                     ammo--;
                     break;
+                case 4:
+                    a.GetComponent<ProjectileCluster>().s = s;
+                    ammo--;
+                    break;
             }
         }
         else if(ammo <= 0)
