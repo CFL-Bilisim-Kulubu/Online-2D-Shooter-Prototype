@@ -87,7 +87,7 @@ public class GrafikAyarları : MonoBehaviour
         }
         else
         {
-            Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
+            Screen.fullScreenMode = FullScreenMode.Windowed;
         }
         PlayerPrefs.SetInt("SCREEN", screen == true ? 1 : 0);
     }
