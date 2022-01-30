@@ -4,11 +4,11 @@ using UnityEngine;
 public class CrateBehaviour : Photon.Bolt.EntityBehaviour<ICrate>
 {
     [SerializeField] private Transform t;
-    [SerializeField] private BoltEntity _entity;
+    [SerializeField] private BoltEntity myEntity;
     [SerializeField] private Rigidbody rb;
     public override void SimulateOwner()
     {
-        if(_entity.IsOwner)
+        if(myEntity.IsOwner)
         {
             state.Velocity = rb.velocity;
             state.Rotation = t.rotation;
