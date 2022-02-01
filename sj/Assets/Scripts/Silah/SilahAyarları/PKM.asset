@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PKM
   m_EditorClassIdentifier: 
   mermi: {fileID: 1747043412135745472, guid: 930178cacfe445f45bda8defef9db6f1, type: 3}
-  MermiSpawn: {x: 0.927, y: -0.138, z: 0}
+  MermiSpawn: {x: 1.191, y: -0.013, z: 0}
   MaksimumMermi: 180
   "Ate\u015FS\xFCresi": 0.06
   "\u015Earj\xF6rYenilemeS\xFCresi": 10
