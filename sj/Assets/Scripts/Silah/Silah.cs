@@ -83,7 +83,7 @@ public class Silah : MonoBehaviour
         {
             Reload();
         }
-        else if (currentAmmo <= 0)
+        else if (ammo <= 0 && currentAmmo <= 0)
         {
             ayar = sd.ayar[defSilah];
             Ayarla();
@@ -116,10 +116,11 @@ public class Silah : MonoBehaviour
 
     public void Ayarla()
     {
+        ammo = maxAmmo;
+        reload = ayar.silahSayi == defSilah ? true : false;
         projectile = ayar.mermi;
         shootTime = ayar.AteþSüresi;
         maxAmmo = ayar.MaksimumMermi;
-        ammo = maxAmmo;
         currentAmmo = maxAmmo * 2;
         reloadSuresi = ayar.ÞarjörYenilemeSüresi;
         projectileSpawn.transform.localPosition = ayar.MermiSpawn;
