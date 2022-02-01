@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58cb433089494e4e8133053fd726d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sd: {fileID: 0}
+  sd: {fileID: 5219470810300125355}
   silahObjeleri:
   - {fileID: 3655229952291779726}
   - {fileID: 3234610541766335499}
