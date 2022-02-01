@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b445f43aca37464ea0f153b6e13b49a, type: 3}
-  m_Name: Glock18
+  m_Name: Glock17
   m_EditorClassIdentifier: 
   mermi: {fileID: 1747043412135745472, guid: a7046062ec7ffd04da71bc482b737a3c, type: 3}
   MermiSpawn: {x: -0.167, y: 0.451, z: 0}

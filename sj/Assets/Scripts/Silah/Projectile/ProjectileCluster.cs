@@ -52,12 +52,5 @@ public class ProjectileCluster : Photon.Bolt.EntityBehaviour<IMermi>
         entity.DestroyDelayed(0);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        GameObject g = BoltNetwork.Instantiate(bombaInstance, this.transform.position, Quaternion.identity);
-        ProjectileBomb b = g.GetComponent<ProjectileBomb>();
-        b.s = s;
-        b.Takým();
-        entity.DestroyDelayed(0);
-    }
+    private void OnTriggerEnter(Collider other) => Patlat();
 }

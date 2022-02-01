@@ -1134,7 +1134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 450, y: 750}
+  m_AnchoredPosition: {x: 450, y: 625}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &229252638
@@ -1682,7 +1682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Glock18\nG\xFC\xE7s\xFCz ama h\u0131zl\u0131"
+  m_text: "Glock17\nG\xFC\xE7s\xFCz ama h\u0131zl\u0131"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2764,7 +2764,7 @@ GameObject:
   - component: {fileID: 877679916}
   - component: {fileID: 877679918}
   m_Layer: 0
-  m_Name: Glock - 18
+  m_Name: Glock - 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7468,7 +7468,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 960, y: 570}
-  m_SizeDelta: {x: 900, y: 1000}
+  m_SizeDelta: {x: 900, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5824981165800958991
 GameObject:
@@ -11737,7 +11737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 450, y: 900}
+  m_AnchoredPosition: {x: 450, y: 785}
   m_SizeDelta: {x: 500, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5824981166644410911
