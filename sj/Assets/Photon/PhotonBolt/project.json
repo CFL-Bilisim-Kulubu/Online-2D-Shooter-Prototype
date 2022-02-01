@@ -1090,7 +1090,21 @@
       "$type": "Photon.Bolt.Compiler.EventDefinition, bolt.compiler",
       "Properties": [
         {
-          "Name": "ID",
+          "Name": "PlayerID",
+          "Enabled": true,
+          "Expanded": true,
+          "ReplicationMode": 1,
+          "Priority": 1,
+          "PropertyType": {
+            "$type": "Photon.Bolt.Compiler.PropertyTypeInteger, bolt.compiler",
+            "MaxValue": 255
+          },
+          "AssetSettings": {
+            "$type": "Photon.Bolt.Compiler.PropertyEventSettings, bolt.compiler"
+          }
+        },
+        {
+          "Name": "ItemID",
           "Enabled": true,
           "Expanded": true,
           "ReplicationMode": 1,

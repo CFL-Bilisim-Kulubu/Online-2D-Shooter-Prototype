@@ -15,7 +15,7 @@ MonoBehaviour:
   mermi: {fileID: 1108411468336604260, guid: 116b64db48333f34f966f943dc81bfb0, type: 3}
   MermiSpawn: {x: -0.222, y: 0.09, z: 0}
   MaksimumMermi: 3
-  "Ate\u015FS\xFCresi": 2
+  "Ate\u015FS\xFCresi": 1.5
   "\u015Earj\xF6rYenilemeS\xFCresi": 3
   mermiTipi: 2
-  silahSayi: 2
+  silahSayi: 5

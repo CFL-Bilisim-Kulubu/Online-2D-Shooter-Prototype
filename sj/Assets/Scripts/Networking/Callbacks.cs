@@ -20,13 +20,13 @@ public class Callbacks : GlobalEventListener
     {
         if (!spawnArea) spawnArea = GameObject.FindGameObjectWithTag("Spawn Area").GetComponent<BoxCollider>();
 
-        Vector3 random = new Vector3(spawnArea.bounds.extents.x * Random.Range(-1, 1),
-                                     spawnArea.bounds.extents.y * Random.Range(-1, 1),
-                                     spawnArea.bounds.extents.z * Random.Range(-1, 1));
+        Vector3 random = new Vector3(spawnArea.bounds.extents.x * Random.Range(-1f, 1f),
+                                     spawnArea.bounds.extents.y * Random.Range(-1f, 1f),
+                                     0);
 
         //Vector3 spawn = spawnPoint.position + new Vector3(Random.Range(-2, 2), 0, Random.Range(-2, 2));
 
-        GameObject g = BoltNetwork.Instantiate(playerPrefab, spawnArea.bounds.center + random, spawnArea.transform.rotation);
+        GameObject g = BoltNetwork.Instantiate(playerPrefab, new Vector3(spawnArea.bounds.center.x, spawnArea.bounds.center.y, 0) + random, spawnArea.transform.rotation);
         Debug.Log("Yeni Oyuncu Spawnladım");
 
         if (Takımlı)

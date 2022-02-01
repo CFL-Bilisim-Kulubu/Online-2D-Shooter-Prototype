@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b445f43aca37464ea0f153b6e13b49a, type: 3}
-  m_Name: AK47
+  m_Name: M9
   m_EditorClassIdentifier: 
-  mermi: {fileID: 1747043412135745472, guid: a8aa271f562f5074a8577ef2a3695d73, type: 3}
-  MermiSpawn: {x: 0.55, y: 0.34, z: 0}
-  MaksimumMermi: 30
-  "Ate\u015FS\xFCresi": 0.15
-  "\u015Earj\xF6rYenilemeS\xFCresi": 4
+  mermi: {fileID: 1747043412135745472, guid: a612b2ef4543f2245ab2a45c803f6af1, type: 3}
+  MermiSpawn: {x: -0.167, y: 0.451, z: 0}
+  MaksimumMermi: 10
+  "Ate\u015FS\xFCresi": 0.6
+  "\u015Earj\xF6rYenilemeS\xFCresi": 3
   mermiTipi: 1
-  silahSayi: 6
+  silahSayi: 2

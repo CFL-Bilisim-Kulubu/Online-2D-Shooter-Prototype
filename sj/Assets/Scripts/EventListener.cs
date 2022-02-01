@@ -4,6 +4,8 @@ using System;
 
 public class EventListener : Photon.Bolt.GlobalEventListener
 {
+    [SerializeField] private SilahDebug sd;
+    [SerializeField] private Silah silah;
     [SerializeField] private Senkranizasyon s;
     [SerializeField] private ÖlümListesi Öl;
     private void Awake()
@@ -59,6 +61,16 @@ public class EventListener : Photon.Bolt.GlobalEventListener
             {
                 sj.SilahModelDeðiþ(evnt.Weapon);
             }
+        }
+    }
+    public override void OnEvent(GetCrate evnt)
+    {
+        if(evnt.PlayerID == s.state.ID)
+        {
+            silah.ayar = sd.ayar[evnt.ItemID];
+            silah.Ayarla();
+            //silah.Sýfýrla();
+            s.SilahSenkranizasyon();
         }
     }
 }

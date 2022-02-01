@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2686512407731250353}
   - component: {fileID: 4558625834847664087}
   m_Layer: 0
-  m_Name: BombClassic
+  m_Name: ClassicBomb
   m_TagString: Bomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

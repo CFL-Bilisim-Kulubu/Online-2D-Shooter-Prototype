@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5173.7695, g: 3225.4102, b: 2314.7305, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6795,6 +6795,8 @@ GameObject:
   - component: {fileID: 1708100971}
   - component: {fileID: 1708100970}
   - component: {fileID: 1708100972}
+  - component: {fileID: 1708100974}
+  - component: {fileID: 1708100973}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -6814,7 +6816,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 60, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 6.35}
 --- !u!4 &1708100971
 Transform:
   m_ObjectHideFlags: 0
@@ -6848,6 +6850,34 @@ MonoBehaviour:
   "Tak\u0131ml\u0131": 1
   spawnArea: {fileID: 1708100970}
   playerPrefab: {fileID: 3951590148835962477, guid: 26888ec008764b84296c63cfe640adf8, type: 3}
+--- !u!65 &1708100973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708100969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 47.85, y: 38.918888, z: 1}
+  m_Center: {x: 0, y: -18.959444, z: 6.35}
+--- !u!114 &1708100974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708100969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f263748ed8a1a6641b5a0a7275cacb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnArea: {fileID: 1708100973}
+  cratePrefab: {fileID: 8601957462113435544, guid: 6479d5aa1f550c74a8650efefe315ec5, type: 3}
+  spawnTime: 7.32
 --- !u!1 &1714170525
 GameObject:
   m_ObjectHideFlags: 0

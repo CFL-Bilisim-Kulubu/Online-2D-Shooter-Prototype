@@ -6,6 +6,7 @@ using Photon.Bolt;
 
 public class Silah : MonoBehaviour
 {
+    [SerializeField] private SilahDebug sd;
     public GameObject[] silahObjeleri;
     public SilahAyarlarý ayar;
     [SerializeField] private Senkranizasyon s;
@@ -17,13 +18,17 @@ public class Silah : MonoBehaviour
     private bool gamepad,shoot,tutunma,reload;
     public Camera kamera;
     public GameObject projectile,projectileSpawn,aimParent,gunObject;
-    [SerializeField] private float shootTime,maxAmmo,ammo,reloadSuresi;
-    private int mermiTipi = 1;
+    [SerializeField] private float shootTime,maxAmmo,ammo,reloadSuresi,currentAmmo;
+    private int mermiTipi = 1,defSilah = 0;
     public int silahID;
 
     private void Awake()
     {
+        if (PlayerPrefs.HasKey("GUN"))
+            defSilah = PlayerPrefs.GetInt("GUN");
+        ayar = sd.ayar[defSilah];
         Ayarla();
+        currentAmmo = 999;
         reload = false;
         kamera = FindObjectOfType<Camera>();
     }
@@ -36,14 +41,18 @@ public class Silah : MonoBehaviour
             reloadT += Time.deltaTime;
             if (reloadT > reloadSuresi)
             {
-                ammo = maxAmmo;
+                currentAmmo += ammo;
+                ammo = currentAmmo >= maxAmmo ? maxAmmo : currentAmmo;
+                currentAmmo -= ammo;
+                if (ayar.silahSayi == defSilah)
+                    currentAmmo = 999;
                 reload = false;
                 reloadT = 0;
             }
         }
         else
         {
-            t.text = "Mermi : " + ammo + " / " + maxAmmo;
+            t.text = "Mermi : " + ammo + " / " + currentAmmo;
         }
 
 
@@ -70,9 +79,15 @@ public class Silah : MonoBehaviour
                     break;
             }
         }
-        else if(ammo <= 0)
+        else if(ammo <= 0 && currentAmmo > 0)
         {
             Reload();
+        }
+        else if (currentAmmo <= 0)
+        {
+            ayar = sd.ayar[defSilah];
+            Ayarla();
+            s.SilahSenkranizasyon();
         }
 
         #region aim alma
@@ -105,6 +120,7 @@ public class Silah : MonoBehaviour
         shootTime = ayar.AteþSüresi;
         maxAmmo = ayar.MaksimumMermi;
         ammo = maxAmmo;
+        currentAmmo = maxAmmo * 2;
         reloadSuresi = ayar.ÞarjörYenilemeSüresi;
         projectileSpawn.transform.localPosition = ayar.MermiSpawn;
         mermiTipi = ayar.mermiTipi;
@@ -122,7 +138,7 @@ public class Silah : MonoBehaviour
 
     public void Reload()
     {
-        if (!reload)
+        if (!reload && ammo != maxAmmo && currentAmmo > 0)
         {
             reload = true;
         }
