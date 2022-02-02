@@ -113,8 +113,9 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
     public override void SimulateOwner()
     {
         base.SimulateOwner();
+        t.position = new Vector3(t.position.x, t.position.y, 0);
         state.Velocity = rb.velocity;
-        state.Position = t.position;
+        state.Position = new Vector3(t.position.x, t.position.y, 0);
         state.SilahRot = silahTransform.rotation;
     }
     private void FixedUpdate()

@@ -19,7 +19,7 @@ public class CrateBehaviour : Photon.Bolt.EntityBehaviour<ICrate>
             t.position = new Vector3(transform.position.x, transform.position.y, 0);
             state.Velocity = rb.velocity;
             state.Rotation = t.rotation;
-            state.Position = t.position;
+            state.Position = new Vector3(t.position.x, t.position.y, 0);
         }
         else
         {
