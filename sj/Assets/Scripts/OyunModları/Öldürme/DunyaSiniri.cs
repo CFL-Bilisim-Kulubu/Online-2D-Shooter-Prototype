@@ -24,8 +24,6 @@ public class DunyaSiniri : MonoBehaviour
                 rb.velocity = Vector3.zero;
             if (s.entity.IsOwner)
             {
-                Silah sj = other.GetComponentInChildren<Silah>();
-                sj.Ayarla();
                 s.StartCoroutine("SpawnProtection_");
                 acik = true;
             }

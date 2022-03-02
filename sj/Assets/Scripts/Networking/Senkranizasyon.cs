@@ -14,7 +14,7 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
     [SerializeField] private MonoBehaviour[] Kapatilcaklar;
     [SerializeField] private GameObject[] KapatilcakObje;
     [SerializeField] private PlayerInput input;
-    [SerializeField] [Range(1f, 20f)] private float ýþýnlanmaMesafesi = 25f;
+    [SerializeField] [Range(1f, 20f)] private float ýþýnlanmaMesafesi = 25f,spawnProtectionT = 5f;
     [SerializeField] [Range(0.01f, 50f)] private float pozisyonLerpHýzý = 2f;
     public Rigidbody rb;
     [SerializeField] private Transform t;
@@ -78,7 +78,7 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
         NickEffecter = "";
 
         spawnProtection = true;
-        yield return new WaitForSeconds(2.4f);
+        yield return new WaitForSeconds(spawnProtectionT);
         spawnProtection = false;
         Debug.Log("spawn protection bitti");
     }
