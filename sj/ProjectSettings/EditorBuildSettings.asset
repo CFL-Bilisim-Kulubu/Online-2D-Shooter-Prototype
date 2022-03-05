@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Haritalar/TDM_MermerHarita.unity
     guid: 9d678592f10f10a47a537e25a50f89a3
+  - enabled: 1
+    path: Assets/Scenes/Haritalar/BB_MermerHarita.unity
+    guid: 6d9a63d1c87299d42b6def203b6f877f
   m_configObjects: {}

@@ -60,6 +60,7 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
         takým = state.Team; 
         StartCoroutine(Ayarlayici());
     } 
+
     public IEnumerator SpawnProtection_()
     {
         if (NickEffecter != "")

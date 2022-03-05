@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class OyundanÇık : MonoBehaviour
 {
-    private void Awake()
-    {
-        Application.targetFrameRate = 120;
-    }
     public void Cik()
     {
         Application.Quit();

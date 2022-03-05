@@ -1358,7 +1358,6 @@ MonoBehaviour:
   sd: {fileID: 5219470810300125355}
   silah: {fileID: 4140417721943979716}
   s: {fileID: 4019443593372782040}
-  "\xD6l": {fileID: 0}
 --- !u!114 &7447868105831871508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1671,6 +1670,7 @@ MonoBehaviour:
   reloadSuresi: 3
   currentAmmo: 0
   silahID: 0
+  defSilah: 0
 --- !u!114 &5219470810300125355
 MonoBehaviour:
   m_ObjectHideFlags: 0

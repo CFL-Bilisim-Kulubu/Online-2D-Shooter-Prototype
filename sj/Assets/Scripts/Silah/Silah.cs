@@ -19,8 +19,13 @@ public class Silah : MonoBehaviour
     public Camera kamera;
     public GameObject projectile,projectileSpawn,aimParent,gunObject;
     [SerializeField] private float shootTime,maxAmmo,ammo,reloadSuresi,currentAmmo;
-    private int mermiTipi = 1,defSilah = 0;
-    public int silahID;
+    private int mermiTipi = 1;
+    public int silahID, defSilah = 0;
+
+    public void Boss()
+    {
+        currentAmmo = 999;
+    }
 
     private void Awake()
     {
