@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4255.5127, g: 2550.2383, b: 1581.3262, a: 1}
+  m_IndirectSpecularColor: {r: 4255.534, g: 2550.254, b: 1581.3613, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5456,7 +5456,6 @@ MonoBehaviour:
   - DM_MermerHarita
   - TDM_MermerHarita
   - BB_MermerHarita
-  - DM_Cigul_iFen
   serverList: {fileID: 5824981165878533403}
   buttonPrefab: {fileID: 45523938744883559, guid: 092b799373d6ec94296c653451026b52, type: 3}
   refreshTime: 3
@@ -8680,8 +8679,6 @@ MonoBehaviour:
     - m_Text: "Mermer Harita Tak\u0131ml\u0131 \xD6l\xFCm Sava\u015F\u0131"
       m_Image: {fileID: 0}
     - m_Text: Mermer Harita Boss Battle
-      m_Image: {fileID: 0}
-    - m_Text: TPS_TEST
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
