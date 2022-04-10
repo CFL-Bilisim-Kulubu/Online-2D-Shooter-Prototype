@@ -24,24 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MouseAim",
-                    "type": "Value",
-                    "id": "784eec38-312a-410c-8040-69e750341a44",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "GamepadAim",
-                    "type": "Value",
-                    "id": "df7988af-2022-406a-80ef-dedc0a9bcb79",
-                    "expectedControlType": "Vector2",
-                    "processors": "StickDeadzone(max=0.925)",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Shoot1",
                     "type": "Button",
                     "id": "cc633c12-9484-4793-97bb-067093638d9f",
@@ -54,15 +36,6 @@
                     "name": "Reload",
                     "type": "Button",
                     "id": "05e3f58e-554c-45f8-aec3-032c16dd8298",
-                    "expectedControlType": "Button",
-                    "processors": "AxisDeadzone(max=1)",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Debug_Silah_Deg",
-                    "type": "Button",
-                    "id": "82cd3ac1-54eb-4457-8866-fd2c40a63624",
                     "expectedControlType": "Button",
                     "processors": "AxisDeadzone(max=1)",
                     "interactions": "",
@@ -141,17 +114,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1b3084a1-9d44-430c-8807-cce6b1eafcc0",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseAim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "cab0717e-dff1-4377-b39a-7cf733c183df",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -174,17 +136,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9c0c8159-b331-410f-b609-e515b36ddc46",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GamepadAim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "83be466e-9d2c-40fa-ab91-cb36ea343f5f",
                     "path": "<Keyboard>/r",
                     "interactions": "",
@@ -202,28 +153,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "92165dc5-4d52-418f-b73c-50690ed63360",
-                    "path": "<Keyboard>/g",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Debug_Silah_Deg",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5d612c4e-6f60-4850-a92f-838201b7af90",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Debug_Silah_Deg",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
