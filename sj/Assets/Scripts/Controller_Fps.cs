@@ -14,7 +14,7 @@ public class Controller_Fps : MonoBehaviour
     public bool tutunma;
     [SerializeField] private bool jump, isGrounded, hitted;
     [SerializeField] private Transform cam,t;
-    [Range(0f,10f)][SerializeField] private float sensivityX = 5, sensivityY = 2.5f;
+    [Range(0f,50f)][SerializeField] private float sensivityX = 40, sensivityY =1.1f;
     private int jumpNumber = 1;
 
     void Start()
@@ -42,8 +42,8 @@ public class Controller_Fps : MonoBehaviour
     private void Update()
     {
         beklemeS += Time.deltaTime;
-        t.Rotate(0, rotate.x * 0.01f * sensivityY, 0);
-        cam.Rotate(rotate.y * 0.01f * sensivityX, 0, 0);
+        t.Rotate(0, rotate.x * 0.01f * sensivityX, 0);
+        cam.Rotate(rotate.y * -0.01f * sensivityY, 0, 0);
     }
 
     void FixedUpdate()
