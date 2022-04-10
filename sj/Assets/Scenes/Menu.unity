@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4610.1387, g: 2946.332, b: 2184.6133, a: 1}
+  m_IndirectSpecularColor: {r: 4255.534, g: 2550.254, b: 1581.3613, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2583,6 +2583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -3480,6 +3481,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
 --- !u!73398921 &1028777188
 VFXRenderer:
+  serializedVersion: 1
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3496,8 +3498,6 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5455,7 +5455,7 @@ MonoBehaviour:
   haritalar:
   - DM_MermerHarita
   - TDM_MermerHarita
-  - BB_MermerHarita
+  - DM_Cigul_iFen
   serverList: {fileID: 5824981165878533403}
   buttonPrefab: {fileID: 45523938744883559, guid: 092b799373d6ec94296c653451026b52, type: 3}
   refreshTime: 3
@@ -5493,7 +5493,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637255987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39d77bdf7b1e9c046a8ca7c3862c9928, type: 3}
   m_Name: 

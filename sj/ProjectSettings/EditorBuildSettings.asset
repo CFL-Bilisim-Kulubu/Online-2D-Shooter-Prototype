@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Haritalar/BB_MermerHarita.unity
     guid: 6d9a63d1c87299d42b6def203b6f877f
+  - enabled: 1
+    path: Assets/Scenes/Haritalar/DM_Cigul_iFen.unity
+    guid: 58cf14d3aef45ca4189bf76ad70b5a1d
   m_configObjects: {}
