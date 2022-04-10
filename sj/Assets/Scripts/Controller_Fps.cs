@@ -9,10 +9,12 @@ public class Controller_Fps : MonoBehaviour
 
     //Input
     [SerializeField] private Collider Kafa;
-    private Vector2 movement;
+    private Vector2 movement,rotate;
     private float beklemeS;
     public bool tutunma;
     [SerializeField] private bool jump, isGrounded, hitted;
+    [SerializeField] private Transform cam,t;
+    [Range(0f,10f)][SerializeField] private float sensivityX = 5, sensivityY = 2.5f;
     private int jumpNumber = 1;
 
     void Start()
@@ -30,17 +32,26 @@ public class Controller_Fps : MonoBehaviour
     {
         jump = value.ReadValueAsButton();
     }
+
+    public void Look(InputAction.CallbackContext value)
+    {
+        rotate = value.ReadValue<Vector2>();
+    }
     #endregion
 
     private void Update()
     {
         beklemeS += Time.deltaTime;
+        t.Rotate(0, rotate.x * 0.01f * sensivityY, 0);
+        cam.Rotate(rotate.y * 0.01f * sensivityX, 0, 0);
     }
 
     void FixedUpdate()
     { 
-        _rigidbody.velocity += new Vector3((SonHýz - Mathf.Abs(_rigidbody.velocity.x)) * movement.x / 15,
-            0, (SonHýz - Mathf.Abs(_rigidbody.velocity.x)) * movement.y / 15);
+        _rigidbody.velocity += 
+            (   (SonHýz - Mathf.Abs(_rigidbody.velocity.magnitude)) * movement.y / 15 ) * t.forward 
+            + 
+            (   (SonHýz - Mathf.Abs(_rigidbody.velocity.magnitude)) * movement.x / 15 ) * t.right;
 
 
         if (isGrounded)
