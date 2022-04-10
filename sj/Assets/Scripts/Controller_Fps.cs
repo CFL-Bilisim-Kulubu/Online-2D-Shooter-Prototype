@@ -38,10 +38,9 @@ public class Controller_Fps : MonoBehaviour
     }
 
     void FixedUpdate()
-    {   #if
-    +
+    { 
         _rigidbody.velocity += new Vector3((SonHýz - Mathf.Abs(_rigidbody.velocity.x)) * movement.x / 15,
-            (SonHýz - Mathf.Abs(_rigidbody.velocity.x)) * movement.y / 15, 0);
+            0, (SonHýz - Mathf.Abs(_rigidbody.velocity.x)) * movement.y / 15);
 
 
         if (isGrounded)

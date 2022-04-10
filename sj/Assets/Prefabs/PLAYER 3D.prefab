@@ -1341,6 +1341,7 @@ MonoBehaviour:
   "pozisyonLerpH\u0131z\u0131": 2.7
   rb: {fileID: 3951590148835962483}
   t: {fileID: 3951590148835962481}
+  fps: 1
   IDEffecter: 0
   NickEffecter: 
   GunEffecter: 

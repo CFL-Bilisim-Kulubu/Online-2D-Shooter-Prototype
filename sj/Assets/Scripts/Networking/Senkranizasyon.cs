@@ -18,6 +18,7 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
     [SerializeField] [Range(0.01f, 50f)] private float pozisyonLerpHýzý = 2f;
     public Rigidbody rb;
     [SerializeField] private Transform t;
+    [SerializeField] private bool fps = false;
     public int IDEffecter;
     public string NickEffecter = "",GunEffecter;
     public bool spawnProtection = true;
@@ -114,10 +115,16 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
     public override void SimulateOwner()
     {
         base.SimulateOwner();
-        t.position = new Vector3(t.position.x, t.position.y, 0);
+        t.position = new Vector3(t.position.x, t.position.y, fps ? t.position.z : 0);
         state.Velocity = rb.velocity;
-        state.Position = new Vector3(t.position.x, t.position.y, 0);
+        state.Position = new Vector3(t.position.x, t.position.y, fps ? t.position.z : 0);
         state.SilahRot = silahTransform.rotation;
+
+        if (fps)
+        {
+            state.Rot = t.rotation;
+            t.rotation = state.Rot;
+        }
     }
     private void FixedUpdate()
     {
