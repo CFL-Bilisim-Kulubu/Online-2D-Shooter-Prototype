@@ -1339,6 +1339,7 @@ MonoBehaviour:
   "pozisyonLerpH\u0131z\u0131": 2.7
   rb: {fileID: 3951590148835962483}
   t: {fileID: 3951590148835962481}
+  fps: 0
   IDEffecter: 0
   NickEffecter: 
   GunEffecter: 
@@ -1658,7 +1659,6 @@ MonoBehaviour:
   ayar: {fileID: 11400000, guid: c0342ac65498677429aedb6b050ae42c, type: 2}
   s: {fileID: 4019443593372782040}
   t: {fileID: 8874650972558579943}
-  c: {fileID: 3951590148835962482}
   aim: 0
   kamera: {fileID: 0}
   projectile: {fileID: 1747043412135745472, guid: 9e428f59996b91e40ab1d4b664d0d7c3, type: 3}
