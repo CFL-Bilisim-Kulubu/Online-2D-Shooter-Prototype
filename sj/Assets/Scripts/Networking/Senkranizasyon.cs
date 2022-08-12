@@ -164,13 +164,11 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
 
     public void SilahSenkranizasyon()
     {
-        if (entity.IsOwner)
-        {
-            ChangeWeapon c = ChangeWeapon.Create();
-            c.ID = state.ID;
-            c.Weapon = silah.silahID;
-            c.Send();
-        }
+
+        ChangeWeapon c = ChangeWeapon.Create();
+        c.ID = state.ID;
+        c.Weapon = silah.silahID;
+        c.Send();
     }
     public void SilahModelDeðiþ(int silahID)
     {
