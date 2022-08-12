@@ -99,7 +99,9 @@ public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
         p.Area = alan;
         p.Position = transform.position;
 
-        Debug.Log(p.EffectedID + " " + p.EffectiveID + " takm:" + takým);
+#if UNITY_EDITOR
+        Debug.Log("================PROJECTILE LOG\nEFFECTED ID/NICK:" + p.EffectedID + " " + p.EffectedNick + " \nEFFFECTIVE ID/NICK: " + p.EffectiveID + " " + p.EffectiveNick + "KILLER TEAM NUM:" + takým);
+#endif
 
         p.Send();
     }

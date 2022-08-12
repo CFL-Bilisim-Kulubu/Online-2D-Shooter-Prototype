@@ -24,12 +24,15 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
     public override void Initialized() // Bolt Awake
     {
         state.Death = 0;
+
         #region renk
         Color color;
         color = Color.red;
         var renkKodu = "#"+PlayerPrefs.GetString("Renk");
         ColorUtility.TryParseHtmlString(renkKodu, out color);
-        Debug.Log(renkKodu);
+#if UNITY_EDITOR
+        Debug.Log("Oyuncu Renk Kodu :" + renkKodu);
+#endif
         state.Color = color;
         #endregion
 
@@ -50,11 +53,15 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
         }
         changeID();
         StartCoroutine(SpawnProtection_());
+
+        
     }
     public override void Attached() // Bolt Start
     {
         Color a = state.Color;
-        Debug.Log(a);
+#if UNITY_EDITOR
+        Debug.Log("Oyuncu Rengi RGB :" + a);
+#endif
         m.material.color = a;
         nick.text = state.Nick;
         takým = state.Team; 
@@ -81,7 +88,9 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
         spawnProtection = true;
         yield return new WaitForSeconds(spawnProtectionT);
         spawnProtection = false;
+#if UNITY_EDITOR
         Debug.Log("spawn protection bitti");
+#endif
     }
     public void changeID()
     {

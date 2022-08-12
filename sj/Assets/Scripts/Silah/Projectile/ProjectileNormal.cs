@@ -56,7 +56,10 @@ public class ProjectileNormal : Photon.Bolt.EntityBehaviour<IMermi>
 
             Senkranizasyon e = other.GetComponent<Senkranizasyon>();
             e = other.gameObject.GetComponent<Senkranizasyon>();
-            Debug.Log(e);
+
+#if UNITY_EDITOR
+            Debug.Log(e != null ? "Projectile Collision Player" : "Projectile Collision NOT Player");
+#endif
 
             if(e != null)
             {
@@ -80,7 +83,9 @@ public class ProjectileNormal : Photon.Bolt.EntityBehaviour<IMermi>
         p.Gun = silahAd;
         p.AreaDamage = false;
 
-        Debug.Log(p.EffectedID + " " + p.EffectiveID + " takm:" + takým);
+#if UNITY_EDITOR
+        Debug.Log("================PROJECTILE LOG\nEFFECTED ID/NICK:" + p.EffectedID + " " + p.EffectedNick + " \nEFFFECTIVE ID/NICK: " + p.EffectiveID + " " + p.EffectiveNick + "KILLER TEAM NUM:" + takým);
+#endif
 
         p.Send();
     }

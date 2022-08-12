@@ -1,5 +1,6 @@
 using Photon.Bolt;
 using UnityEngine;
+using System.Collections;
 
 public class BossBattleGameRuler : GlobalEventListener
 {
@@ -10,7 +11,9 @@ public class BossBattleGameRuler : GlobalEventListener
     [Header("Boss Settings")]
     [SerializeField] private float bossDrag;
     [SerializeField] private int bossGunID;
-    
+    [SerializeField] private BoltEntity[] every;
+
+
     private Senkranizasyon s;
     private Color defaultColor;
     private float normalDrag;
@@ -40,7 +43,7 @@ public class BossBattleGameRuler : GlobalEventListener
         //Vector3 spawn = spawnPoint.position + new Vector3(Random.Range(-2, 2), 0, Random.Range(-2, 2));
 
         GameObject g = BoltNetwork.Instantiate(playerPrefab, new Vector3(spawnArea.bounds.center.x, spawnArea.bounds.center.y, 0) + random, spawnArea.transform.rotation);
-        Debug.Log("Yeni Oyuncu Spawnladým");
+        Debug.Log("Yeni Oyuncu Oyuna Baðlandý ve Spawnlandý");
 
         s = g.GetComponent<Senkranizasyon>();
 
@@ -61,31 +64,40 @@ public class BossBattleGameRuler : GlobalEventListener
     }
     
 
-    public override void OnEvent(Died evnt)
+    public void OnSomeoneDied(Died evnt)
     {
         if (!isHost)
             return;
 
-        BoltEntity[] every = FindObjectsOfType<BoltEntity>();
+#if UNITY_EDITOR
+        Debug.Log("Host Biziz");
+#endif
+
+        every = FindObjectsOfType<BoltEntity>();
         foreach(BoltEntity entity in every)
         {
-                if (!entity.StateIs<IMain>())
-                    return;
-                if(entity.GetState<IMain>().IsBoss)
-                {
-                    Debug.Log("buldum");
-                    //daha optimize olsun diye ilk boss mu diye bakýyoz sadece
-                    if (entity.GetState<IMain>().ID == evnt.EffectedID)
-                    {
-                        NewBoss n = NewBoss.Create();
-                        n.NewID = evnt.EffectiveID;
-                        n.OldID = evnt.EffectedID;
-                        n.Send();
-                        Debug.Log(evnt.EffectiveID + " ve " + evnt.EffectedID);
-                    }
-                }
 
-            
+            if (!entity.StateIs<IMain>())
+                continue;
+
+            if (entity.GetState<IMain>().IsBoss) 
+            {
+#if UNITY_EDITOR
+                Debug.Log("Boss mu Öldü Kontrol Ediliyor");
+#endif
+                //daha optimize olsun diye ilk boss mu diye bakýyoz sadece
+                if (entity.GetState<IMain>().ID == evnt.EffectedID)
+                {
+                    Debug.Log("Boss Öldü");
+
+                    NewBoss n = NewBoss.Create();
+                    n.NewID = evnt.EffectiveID;
+                    n.OldID = evnt.EffectedID;
+                    n.Send();
+                    Debug.Log(evnt.EffectiveID + " ve " + evnt.EffectedID);
+                }
+                    
+            }
         }
     }
     
@@ -94,29 +106,42 @@ public class BossBattleGameRuler : GlobalEventListener
     {
         normalDrag = se.gameObject.GetComponent<Rigidbody>().drag;//normal dragi depolama
         se.gameObject.GetComponent<Rigidbody>().drag = bossDrag;
+
+        if (!isHost)
+            return;
+
         GetCrate g = GetCrate.Create();
         g.PlayerID = se.state.ID;
         g.ItemID = bossGunID;
         g.Send();
 
+        if (!isHost)
+            return;
+
         //renk deðiþtirme
-        se.state.Color = BossColor;
-        se.Ayarla(BossColor);
-        VisualisePlayer p = VisualisePlayer.Create();
-        p.Send();
+        defaultColor = se.state.Color;
+        ChangeColor cc = ChangeColor.Create();
+        cc.ID = se.state.ID;
+        cc.Color = BossColor;
+        cc.Send();
     }
     public void makeNormal(Senkranizasyon se,Silah si)
     {
         se.gameObject.GetComponent<Rigidbody>().drag = normalDrag;
         GetCrate g = GetCrate.Create();
+        
+
         g.PlayerID = se.state.ID;
         g.ItemID = si.defSilah;
         g.Send();
 
+        if (!isHost)
+            return;
+
         //renk deðiþtirme
-        se.state.Color = defaultColor;
-        se.Ayarla(defaultColor);
-        VisualisePlayer p = VisualisePlayer.Create();
-        p.Send();
+        ChangeColor cc = ChangeColor.Create();
+        cc.ID = se.state.ID;
+        cc.Color = defaultColor;
+        cc.Send();
     }
 }
