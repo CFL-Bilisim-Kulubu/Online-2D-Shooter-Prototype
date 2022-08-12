@@ -10,7 +10,7 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
     [SerializeField] private Silah silah;
     [SerializeField] private MeshRenderer m;
     [SerializeField] private TMP_Text nick;
-    [SerializeField] private Transform silahTransform;
+    [SerializeField] private Transform silahTransform,silahScaleTransform;
     [SerializeField] private MonoBehaviour[] Kapatilcaklar;
     [SerializeField] private GameObject[] KapatilcakObje;
     [SerializeField] private PlayerInput input;
@@ -131,6 +131,7 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
         state.Velocity = rb.velocity;
         state.Position = new Vector3(t.position.x, t.position.y,0);
         state.SilahRot = silahTransform.rotation;
+        state.Scale = silahScaleTransform.localScale;
 
     }
     private void FixedUpdate()
@@ -142,7 +143,9 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
                 rb.MovePosition(state.Position);
             else
                 rb.MovePosition(Vector3.Slerp(rb.position, state.Position, pozisyonLerpHýzý * Time.fixedDeltaTime));
+
             silahTransform.rotation = state.SilahRot;
+            silahScaleTransform.localScale = new Vector3(state.Scale.x > 1 ? 1 : -1, state.Scale.y > 1 ? 1 : -1, state.Scale.z > 1 ? 1 : -1);
         }
     }
     private IEnumerator Ayarlayici()

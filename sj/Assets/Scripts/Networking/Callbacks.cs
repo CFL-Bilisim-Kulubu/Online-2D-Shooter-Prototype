@@ -15,6 +15,13 @@ public class Callbacks : GlobalEventListener
     {
         if(!Takımlı)
             Spawn(0);
+
+        Senkranizasyon[] senk;
+        senk = FindObjectsOfType<Senkranizasyon>();
+        foreach (Senkranizasyon snk in senk)
+        {
+            snk.SilahSenkranizasyon();
+        }
     }
     public void Spawn(int team)
     {

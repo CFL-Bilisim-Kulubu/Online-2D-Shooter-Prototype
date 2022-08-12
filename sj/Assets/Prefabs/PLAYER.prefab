@@ -1363,6 +1363,7 @@ MonoBehaviour:
   m: {fileID: 3951590148835962479}
   nick: {fileID: 971207522954885984}
   silahTransform: {fileID: 3951590148715828492}
+  silahScaleTransform: {fileID: 3951590149215847055}
   Kapatilcaklar:
   - {fileID: 3951590148835962482}
   - {fileID: 4140417721943979716}

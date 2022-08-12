@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4609.0146, g: 2945.7812, b: 2169.7617, a: 1}
+  m_IndirectSpecularColor: {r: 4612.8975, g: 2948.0098, b: 2170.4492, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2503,19 +2503,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549797477}
   m_CullTransparentMesh: 1
---- !u!114 &656970660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5824981166644410911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e416951c15b41a147a18787a3193fd81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  t: {fileID: 5824981166644410906}
 --- !u!1001 &657967996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5480,6 +5467,7 @@ GameObject:
   - component: {fileID: 1637255988}
   - component: {fileID: 1637255990}
   - component: {fileID: 1637255991}
+  - component: {fileID: 1637255992}
   m_Layer: 0
   m_Name: SJ
   m_TagString: Untagged
@@ -5547,13 +5535,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637255987}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39d77bdf7b1e9c046a8ca7c3862c9928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   info: The remastered definitive ediiton of SJ
-  state: "sj adam vuruyo, Oyun S\xFCr\xFCm\xFC: 0.71"
+  state: "sj adam vuruyo, Oyun S\xFCr\xFCm\xFC: 0.94"
+--- !u!114 &1637255992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637255987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e416951c15b41a147a18787a3193fd81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  it: {fileID: 5824981165710294564}
+  t: {fileID: 5824981166644410906}
 --- !u!1 &1642826624
 GameObject:
   m_ObjectHideFlags: 0
@@ -12893,7 +12895,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 656970660}
+      - m_Target: {fileID: 1637255992}
         m_TargetAssemblyTypeName: NickSave, Assembly-CSharp
         m_MethodName: sj
         m_Mode: 1
@@ -12986,7 +12988,6 @@ GameObject:
   - component: {fileID: 5824981166644410904}
   - component: {fileID: 5824981166644410907}
   - component: {fileID: 5824981166644410906}
-  - component: {fileID: 656970660}
   m_Layer: 0
   m_Name: "Oyuncu Ad\u0131 Input Field"
   m_TagString: Untagged

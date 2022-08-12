@@ -31,6 +31,13 @@ public class BossBattleGameRuler : GlobalEventListener
     public override void SceneLoadLocalDone(string scene, IProtocolToken protocolToken)
     {
         Spawn(0);
+
+        Senkranizasyon[] senk;
+        senk = FindObjectsOfType<Senkranizasyon>();
+        foreach (Senkranizasyon snk in senk)
+        {
+            snk.SilahSenkranizasyon();
+        }
     }
     public void Spawn(int team)
     {

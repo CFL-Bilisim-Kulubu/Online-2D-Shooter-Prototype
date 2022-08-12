@@ -9,14 +9,25 @@ public class DiscordManager : MonoBehaviour
 
     private void Start()
     {
-        discord = new Discord.Discord(864101586900877322, (ulong)CreateFlags.Default);
-        activityManager = discord.GetActivityManager();
+        try
+        {
+            discord = new Discord.Discord(864101586900877322, (ulong)CreateFlags.Default);
+            activityManager = discord.GetActivityManager();
 #if UNITY_EDITOR
-        UpdatePresence(info, "Debugging mode: on, editing some scripts...");
+            UpdatePresence(info, "Debugging mode: on, editing some scripts...");
 #else
         UpdatePresence(info, state);
 #endif
+        }
+        catch
+        {
+#if UNITY_EDITOR
+            Debug.Log("allah dc gg");
+#endif
+        }
     }
+
+
 
     private void Update() => discord.RunCallbacks();
 
