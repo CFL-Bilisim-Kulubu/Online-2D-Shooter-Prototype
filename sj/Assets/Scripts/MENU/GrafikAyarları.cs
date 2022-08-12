@@ -45,11 +45,12 @@ public class GrafikAyarları : MonoBehaviour
         Application.targetFrameRate = fpsLimitleri[fpsLimit];
         if (screen)
         {
+            Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode.Windowed);
             Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         }
         else
         {
-            Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
+            Screen.fullScreenMode = FullScreenMode.Windowed;
         }
         foreach (VolumeProfile v in assets)
         {
@@ -83,6 +84,7 @@ public class GrafikAyarları : MonoBehaviour
         screenText.text = screen == true ? On : Off;
         if (screen)
         {
+            Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height,FullScreenMode.Windowed);
             Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         }
         else

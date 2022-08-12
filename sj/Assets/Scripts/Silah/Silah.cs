@@ -24,7 +24,7 @@ public class Silah : MonoBehaviour
 
     public void Boss()
     {
-        currentAmmo = 999;
+        currentAmmo = 9999;
     }
 
     private void Awake()

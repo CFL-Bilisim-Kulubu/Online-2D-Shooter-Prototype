@@ -1203,7 +1203,31 @@ MonoBehaviour:
     m_ActionId: 05e3f58e-554c-45f8-aec3-032c16dd8298
     m_ActionName: Gameplay/Reload[/Keyboard/r]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5219470810300125355}
+        m_TargetAssemblyTypeName: SilahDebug, Assembly-CSharp
+        m_MethodName: Degisme
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 435670183710924619}
+        m_TargetAssemblyTypeName: "SilahDe\u011Fi\u015Ftirici, Assembly-CSharp"
+        m_MethodName: Degisme
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 82cd3ac1-54eb-4457-8866-fd2c40a63624
     m_ActionName: Gameplay/Debug_Silah_Deg[/Keyboard/g]
   - m_PersistentCalls:
@@ -1626,6 +1650,7 @@ GameObject:
   - component: {fileID: 1127576998015018678}
   - component: {fileID: 4140417721943979716}
   - component: {fileID: 5219470810300125355}
+  - component: {fileID: 435670183710924619}
   m_Layer: 0
   m_Name: SILAH
   m_TagString: Untagged
@@ -1713,6 +1738,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a01fbf61a463bf48b79423b11d1b5a3, type: 2}
   - {fileID: 11400000, guid: 6710509e222a2ef40a8135c42eabd506, type: 2}
   - {fileID: 11400000, guid: 0b86bd2a58f2eb14686a2e6d010583bb, type: 2}
+  silah: {fileID: 4140417721943979716}
+  a: 0
+--- !u!114 &435670183710924619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297334980231357762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526b39b51e25b784ca40c6957a8b6b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  senkronizasyon: {fileID: 4019443593372782040}
+  aktif: 0
+  ayar:
+  - {fileID: 11400000, guid: 0b86bd2a58f2eb14686a2e6d010583bb, type: 2}
+  - {fileID: 11400000, guid: 25457af7d94724f41a261f25f4f517a0, type: 2}
+  - {fileID: 11400000, guid: c2f352e63c75f1646ae600707f80b0de, type: 2}
+  - {fileID: 11400000, guid: 6710509e222a2ef40a8135c42eabd506, type: 2}
   silah: {fileID: 4140417721943979716}
   a: 0
 --- !u!1 &4323370946046393929
@@ -3351,6 +3397,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8952512448087630502}
     m_Modifications:
+    - target: {fileID: 4578675509642650492, guid: d7194e6c92e5d6b48b109896b2046c6a, type: 3}
+      propertyPath: m_text
+      value: "\xE7et e selamlar sohbet test 123"
+      objectReference: {fileID: 0}
     - target: {fileID: 5327971023553230262, guid: d7194e6c92e5d6b48b109896b2046c6a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

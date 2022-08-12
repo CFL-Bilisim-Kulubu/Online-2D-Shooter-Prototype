@@ -46,12 +46,13 @@ public class ProjectileNormal : Photon.Bolt.EntityBehaviour<IMermi>
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(s.gameObject.GetComponent<DebugPlayer>().debug)
-        {
-            Instantiate(debugObject, this.transform.position, Quaternion.identity);
-        }
+        
         if (entity.IsOwner)
         {
+            if (s.gameObject.GetComponent<DebugPlayer>().debug)
+            {
+                Instantiate(debugObject, this.transform.position, Quaternion.identity);
+            }
             hasarVerildi = true;
 
             Senkranizasyon e = other.GetComponent<Senkranizasyon>();

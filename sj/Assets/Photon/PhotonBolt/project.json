@@ -1205,7 +1205,6 @@
           }
         }
       ],
-      "GlobalSenders": 1,
       "Name": "ChangeColor",
       "Guid": "9bd1357a-e591-45a9-b136-8ceedcd1f8fb",
       "Groups": []

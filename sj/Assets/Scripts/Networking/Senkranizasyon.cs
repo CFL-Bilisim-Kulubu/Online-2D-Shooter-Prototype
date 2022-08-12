@@ -23,7 +23,7 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
     public bool spawnProtection = true;
     public override void Initialized() // Bolt Awake
     {
-        state.Death = 0;
+        state.Death = -1;
 
         #region renk
         Color color;
@@ -52,9 +52,13 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
             }
         }
         changeID();
-        StartCoroutine(SpawnProtection_());
 
-        
+        GetCrate g = GetCrate.Create();
+        g.PlayerID = state.ID;
+        g.ItemID = silah.defSilah;
+        g.Send();
+
+        StartCoroutine(SpawnProtection_());
     }
     public override void Attached() // Bolt Start
     {

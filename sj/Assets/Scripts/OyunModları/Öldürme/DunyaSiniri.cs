@@ -15,7 +15,6 @@ public class DunyaSiniri : MonoBehaviour
         //Vector3 spawn = spawnPoint.position + new Vector3(Random.Range(-2, 2), 0, Random.Range(-2, 2));
         other.transform.position = spawnArea.bounds.center + random;
         
-        Debug.Log("biri öldü sj");
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
         Senkranizasyon s = other.gameObject.GetComponent<Senkranizasyon>();
         if(!s)

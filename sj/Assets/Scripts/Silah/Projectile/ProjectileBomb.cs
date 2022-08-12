@@ -59,12 +59,13 @@ public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
         if (other.CompareTag("Bomba"))
             return;
         BoltNetwork.Instantiate(patlamaInstance, this.transform.position, Quaternion.identity);
-        if (s.gameObject.GetComponent<DebugPlayer>().debug)
-        {
-            Instantiate(debugObject, this.transform.position, Quaternion.identity);
-        }
+        
         if (entity.IsOwner)
         {
+            if (s.gameObject.GetComponent<DebugPlayer>().debug)
+            {
+                Instantiate(debugObject, this.transform.position, Quaternion.identity);
+            }
             hasarVerildi = true;
 
             Collider[] bombaCol = Physics.OverlapSphere(transform.position, alan);

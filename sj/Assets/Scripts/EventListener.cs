@@ -1,6 +1,6 @@
 using Photon.Bolt;
 using UnityEngine;
-using System;
+using System.Collections;
 
 public class EventListener : Photon.Bolt.GlobalEventListener
 {
@@ -118,8 +118,14 @@ public class EventListener : Photon.Bolt.GlobalEventListener
         {
             s.state.Color = evnt.Color;
 
-            VisualisePlayer p = VisualisePlayer.Create();
-            p.Send();
+            StartCoroutine(visualisePlayerLate());
         }
+    }
+    private IEnumerator visualisePlayerLate()
+    {
+        yield return new WaitForSeconds(1.3f);
+        
+        VisualisePlayer p = VisualisePlayer.Create();
+        p.Send();
     }
 }

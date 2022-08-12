@@ -9,14 +9,14 @@ public class BossBattleGameRuler : GlobalEventListener
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Color BossColor;
     [Header("Boss Settings")]
-    [SerializeField] private float bossDrag;
+    [SerializeField] private float bossDrag, bossJumpForce, bossMovementSpeed;
     [SerializeField] private int bossGunID;
-    [SerializeField] private BoltEntity[] every;
+    private BoltEntity[] every;
 
 
     private Senkranizasyon s;
     private Color defaultColor;
-    private float normalDrag;
+    private float normalDrag, normalJumpForce, normalMovementSpeed;
 
 
 
@@ -101,25 +101,26 @@ public class BossBattleGameRuler : GlobalEventListener
         }
     }
     
-
+    /* BUNLAR CLIENT SIDED */
     public void makeBoss(Senkranizasyon se,Silah si)
     {
-        normalDrag = se.gameObject.GetComponent<Rigidbody>().drag;//normal dragi depolama
-        se.gameObject.GetComponent<Rigidbody>().drag = bossDrag;
+        //normal dragi, hýzý ve zýplama gücünü depolama
+        normalMovementSpeed = se.gameObject.GetComponent<Conttrollrer>().SonHýz;
+        normalJumpForce = se.gameObject.GetComponent<Conttrollrer>().ZýplamaGücü;
+        normalDrag = se.gameObject.GetComponent<Rigidbody>().drag;  
 
-        if (!isHost)
-            return;
+        se.gameObject.GetComponent<Rigidbody>().drag = bossDrag;
+        se.gameObject.GetComponent<Conttrollrer>().ZýplamaGücü = bossJumpForce;
+        se.gameObject.GetComponent<Conttrollrer>().SonHýz = bossMovementSpeed;
+        se.gameObject.GetComponentInChildren<SilahDeðiþtirici>().AktiveEt();
+
 
         GetCrate g = GetCrate.Create();
         g.PlayerID = se.state.ID;
         g.ItemID = bossGunID;
         g.Send();
 
-        if (!isHost)
-            return;
-
         //renk deðiþtirme
-        defaultColor = se.state.Color;
         ChangeColor cc = ChangeColor.Create();
         cc.ID = se.state.ID;
         cc.Color = BossColor;
@@ -128,15 +129,15 @@ public class BossBattleGameRuler : GlobalEventListener
     public void makeNormal(Senkranizasyon se,Silah si)
     {
         se.gameObject.GetComponent<Rigidbody>().drag = normalDrag;
-        GetCrate g = GetCrate.Create();
-        
+        se.gameObject.GetComponent<Conttrollrer>().ZýplamaGücü = normalJumpForce;
+        se.gameObject.GetComponent<Conttrollrer>().SonHýz = normalMovementSpeed;
+        se.gameObject.GetComponentInChildren<SilahDeðiþtirici>().DeAktiveEt();
 
+
+        GetCrate g = GetCrate.Create();
         g.PlayerID = se.state.ID;
         g.ItemID = si.defSilah;
         g.Send();
-
-        if (!isHost)
-            return;
 
         //renk deðiþtirme
         ChangeColor cc = ChangeColor.Create();

@@ -34,11 +34,16 @@ public class CrateBehaviour : Photon.Bolt.EntityBehaviour<ICrate>
         if(other.CompareTag("Player"))
         {
             Debug.Log("Player");
-            GetCrate c = GetCrate.Create();
             Senkranizasyon s = other.gameObject.GetComponent<Senkranizasyon>();
+
+            if (s.entity.GetState<IMain>().IsBoss)      //boss ise silahýný deðiþtirme
+                return;
+
+            GetCrate c = GetCrate.Create();
             c.PlayerID = s.state.ID;
             c.ItemID = item;
             c.Send();
+
             BoltNetwork.Destroy(this.gameObject);
         }
     }
