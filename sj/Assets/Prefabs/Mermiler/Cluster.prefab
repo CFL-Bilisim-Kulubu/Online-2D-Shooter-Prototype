@@ -212,7 +212,7 @@ MonoBehaviour:
   - {fileID: 5967554793403043335}
   - {fileID: 4753393947829111635}
   bombaInstance: {fileID: 6307028683725720109, guid: 9cbbb40e9717de141a952e6ed3d68cf4, type: 3}
-  hiz: 0.25
+  hiz: 0.4
   yokolmaSuresi: 1
   yercekimiKatsayisi: 0.001
   silahAd: cluster

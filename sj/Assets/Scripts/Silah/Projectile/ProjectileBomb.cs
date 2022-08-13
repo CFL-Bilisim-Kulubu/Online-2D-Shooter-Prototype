@@ -60,7 +60,7 @@ public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
             return;
         BoltNetwork.Instantiate(patlamaInstance, this.transform.position, Quaternion.identity);
         
-        if (entity.IsOwner)
+        if (entity.IsOwner && !other.isTrigger && !hasarVerildi)
         {
             if (s.gameObject.GetComponent<DebugPlayer>().debug)
             {

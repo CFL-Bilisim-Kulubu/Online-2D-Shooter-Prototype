@@ -11,6 +11,7 @@ public class ProjectileCluster : Photon.Bolt.EntityBehaviour<IMermi>
     public Senkranizasyon s;
     private float yc,zamanlayici;
     private int takým;
+    private bool hasarVerildi;
     [SerializeField] private Transform t;
     public override void Initialized()
     {
@@ -41,6 +42,7 @@ public class ProjectileCluster : Photon.Bolt.EntityBehaviour<IMermi>
     }
     private void Patlat()
     {
+        hasarVerildi = true;
         self.enabled = false;
         foreach (Transform t in clusters)
         {
@@ -52,5 +54,9 @@ public class ProjectileCluster : Photon.Bolt.EntityBehaviour<IMermi>
         entity.DestroyDelayed(0);
     }
 
-    private void OnTriggerEnter(Collider other) => Patlat();
+    private void OnTriggerEnter(Collider other)
+    {
+        if (entity.IsOwner && !other.isTrigger && !hasarVerildi)
+            Patlat();
+    }
 }
