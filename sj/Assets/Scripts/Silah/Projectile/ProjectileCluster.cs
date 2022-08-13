@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ProjectileCluster : Photon.Bolt.EntityBehaviour<IMermi>
 {
+    [SerializeField] private GameObject debugObject;
     [SerializeField] private Collider self;
     [SerializeField] private Transform[] clusters;
     [SerializeField] private GameObject bombaInstance;
@@ -11,6 +12,7 @@ public class ProjectileCluster : Photon.Bolt.EntityBehaviour<IMermi>
     public Senkranizasyon s;
     private float yc,zamanlayici;
     private int takým;
+    private bool hasarVerildi;
     [SerializeField] private Transform t;
     public override void Initialized()
     {
@@ -36,11 +38,17 @@ public class ProjectileCluster : Photon.Bolt.EntityBehaviour<IMermi>
             state.Position = t.position += t.right * hiz;
             zamanlayici += Time.deltaTime;
         }
-        if (yokolmaSuresi < zamanlayici)
+        if (yokolmaSuresi < zamanlayici && !hasarVerildi)
             Patlat();
     }
     private void Patlat()
     {
+        if (s.gameObject.GetComponent<DebugPlayer>().debug)
+        {
+            Instantiate(debugObject, this.transform.position, Quaternion.identity);
+        }
+
+        hasarVerildi = true;
         self.enabled = false;
         foreach (Transform t in clusters)
         {
@@ -52,5 +60,9 @@ public class ProjectileCluster : Photon.Bolt.EntityBehaviour<IMermi>
         entity.DestroyDelayed(0);
     }
 
-    private void OnTriggerEnter(Collider other) => Patlat();
+    private void OnTriggerEnter(Collider other)
+    {
+        if (entity.IsOwner && !other.isTrigger && !hasarVerildi)
+            Patlat();
+    }
 }
