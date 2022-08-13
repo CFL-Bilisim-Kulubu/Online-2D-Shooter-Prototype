@@ -7,7 +7,7 @@ using Photon.Bolt;
 public class Silah : MonoBehaviour
 {
     [SerializeField] private SilahDebug sd;
-    public GameObject[] silahObjeleri;
+    public GameObject[] silahObjeleri, projectileSpawnMultiple;
     public SilahAyarlarý ayar;
     [SerializeField] private Senkranizasyon s;
     [SerializeField] private TMP_Text t;
@@ -19,7 +19,7 @@ public class Silah : MonoBehaviour
     public Camera kamera;
     public GameObject projectile,projectileSpawn,aimParent,gunObject;
     [SerializeField] private float shootTime,maxAmmo,ammo,reloadSuresi,currentAmmo;
-    private int mermiTipi = 1;
+    private int mermiTipi = 1,mermiSayýsý = 1;
     public int silahID, defSilah = 0;
 
     public void Boss()
@@ -65,22 +65,43 @@ public class Silah : MonoBehaviour
         if (shootT > shootTime && shoot && !c.tutunma && !s.spawnProtection && ammo > 0 && !reload)
         {
             shootT = 0;
-            GameObject a =
-            BoltNetwork.Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
             switch (mermiTipi)
             {
                 case 1:
-                    a.GetComponent<ProjectileNormal>().s = s;
-                    a.GetComponent<ProjectileNormal>().Takým();
+                    GameObject a;
+                    if (mermiSayýsý < 2)
+                    {
+                        a = BoltNetwork.Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
+
+                        a.GetComponent<ProjectileNormal>().s = s;
+                        a.GetComponent<ProjectileNormal>().Takým();
+                    }
+                    else
+                    {
+                        for (int i = 0; i < (mermiSayýsý > projectileSpawnMultiple.Length ? projectileSpawnMultiple.Length : mermiSayýsý); i++)
+                        {
+                            a = BoltNetwork.Instantiate(projectile, projectileSpawnMultiple[i].transform.position, projectileSpawnMultiple[i].transform.rotation);
+
+                            a.GetComponent<ProjectileNormal>().s = s;
+                            a.GetComponent<ProjectileNormal>().Takým();
+                        }
+                    }
                     ammo--;
+
                     break;
                 case 2:
-                    a.GetComponent<ProjectileBomb>().s = s;
-                    a.GetComponent<ProjectileBomb>().Takým();
+                    GameObject b =
+                    BoltNetwork.Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
+
+                    b.GetComponent<ProjectileBomb>().s = s;
+                    b.GetComponent<ProjectileBomb>().Takým();
                     ammo--;
                     break;
                 case 4:
-                    a.GetComponent<ProjectileCluster>().s = s;
+                    GameObject c =
+                    BoltNetwork.Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
+
+                    c.GetComponent<ProjectileCluster>().s = s;
                     ammo--;
                     break;
             }
@@ -131,6 +152,7 @@ public class Silah : MonoBehaviour
         reloadSuresi = ayar.ÞarjörYenilemeSüresi;
         projectileSpawn.transform.localPosition = ayar.MermiSpawn;
         mermiTipi = ayar.mermiTipi;
+        mermiSayýsý = ayar.mermiSayýsý;
         silahID = ayar.silahSayi;
 
         foreach (GameObject s in silahObjeleri)

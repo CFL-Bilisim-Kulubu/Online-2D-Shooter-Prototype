@@ -25,7 +25,7 @@ public class CrateBehaviour : Photon.Bolt.EntityBehaviour<ICrate>
         {
             rb.velocity = state.Velocity;
             t.rotation = state.Rotation;
-            t.position = state.Position;
+            t.position = new Vector3(state.Position.x, state.Position.y, 0);
         }
     }
     private void OnTriggerEnter(Collider other)
