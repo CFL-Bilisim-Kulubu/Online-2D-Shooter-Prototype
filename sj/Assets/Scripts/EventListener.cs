@@ -99,6 +99,9 @@ public class EventListener : Photon.Bolt.GlobalEventListener
     }
     public override void OnEvent(NewBoss evnt)
     {
+        if (evnt.OldID == evnt.NewID)
+            return;
+
         if(evnt.OldID == s.state.ID)
         {
             Debug.Log("Normal Oyuncu Olduk");
