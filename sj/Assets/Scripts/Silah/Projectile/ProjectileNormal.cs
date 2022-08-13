@@ -51,7 +51,7 @@ public class ProjectileNormal : Photon.Bolt.EntityBehaviour<IMermi>
         {
             if (s.gameObject.GetComponent<DebugPlayer>().debug)
             {
-                Instantiate(debugObject, this.transform.position, Quaternion.identity);
+                Instantiate(debugObject, other.ClosestPoint(this.transform.position), Quaternion.identity);
             }
             hasarVerildi = true;
 
