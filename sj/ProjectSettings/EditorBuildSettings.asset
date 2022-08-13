@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Haritalar/DM_MermerHarita.unity
     guid: 895c9a5ccb84cdb4caa7ab0bdb710ceb
   - enabled: 1
+    path: Assets/Scenes/Haritalar/AGDM_MermerHarita.unity
+    guid: 76ef0fb97d29dd84394e57ab77807321
+  - enabled: 1
     path: Assets/Scenes/Haritalar/TDM_MermerHarita.unity
     guid: 9d678592f10f10a47a537e25a50f89a3
   - enabled: 1

@@ -8,7 +8,14 @@ public class SilahDebug : MonoBehaviour
     public SilahAyarlarý[] ayar;
     [SerializeField] private Silah silah;
     [SerializeField] private int a;
-
+    public void AktiveEt()
+    {
+        aktif = true;
+    }
+    public void DeAktiveEt()
+    {
+        aktif = false;
+    }
     public void Degisme(InputAction.CallbackContext ctx)
     {
         if(ctx.performed && aktif)

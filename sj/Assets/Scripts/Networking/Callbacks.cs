@@ -1,8 +1,10 @@
 ﻿using Photon.Bolt;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Callbacks : GlobalEventListener
 {
+    [SerializeField][Tooltip("onSpawn eventleri oyuncu prefabi spawnlanınca")] private UnityEvent onSpawn;
     [SerializeField] private Color[] TakımRengi;
     [SerializeField] private bool Takımlı = false;
     [SerializeField] private BoxCollider spawnArea;
@@ -21,6 +23,15 @@ public class Callbacks : GlobalEventListener
         foreach (Senkranizasyon snk in senk)
         {
             snk.SilahSenkranizasyon();
+        }
+
+        try
+        {
+            onSpawn.Invoke();
+        }
+        catch (UnityException e)
+        {
+            Debug.Log("On Die event çağırılma hatası! \nHata:" + e);
         }
     }
     public void Spawn(int team)

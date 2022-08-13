@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AK47
   m_EditorClassIdentifier: 
   mermi: {fileID: 1747043412135745472, guid: a8aa271f562f5074a8577ef2a3695d73, type: 3}
-  MermiSpawn: {x: 0.915, y: 0.335, z: 0}
+  MermiSpawn: {x: 0.915, y: 0.34, z: 0}
   MaksimumMermi: 30
   "Ate\u015FS\xFCresi": 0.15
   "\u015Earj\xF6rYenilemeS\xFCresi": 4
