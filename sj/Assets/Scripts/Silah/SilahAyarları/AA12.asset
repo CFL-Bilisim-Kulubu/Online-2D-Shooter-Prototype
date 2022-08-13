@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b445f43aca37464ea0f153b6e13b49a, type: 3}
+  m_Name: AA12
+  m_EditorClassIdentifier: 
+  mermi: {fileID: 1747043412135745472, guid: 1b470c44f299468468a8f865aa787341, type: 3}
+  MermiSpawn: {x: 0.76, y: 0.076, z: 0}
+  MaksimumMermi: 14
+  "Ate\u015FS\xFCresi": 0.3
+  "\u015Earj\xF6rYenilemeS\xFCresi": 3
+  mermiTipi: 1
+  "mermiSay\u0131s\u0131": 3
+  silahSayi: 10
