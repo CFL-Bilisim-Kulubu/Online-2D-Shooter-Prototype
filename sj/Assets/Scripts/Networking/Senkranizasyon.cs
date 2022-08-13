@@ -132,7 +132,6 @@ public class Senkranizasyon : Photon.Bolt.EntityBehaviour<IMain>
         state.Position = new Vector3(t.position.x, t.position.y,0);
         state.SilahRot = silahTransform.rotation;
         state.Scale = silahScaleTransform.localScale;
-        Debug.Log(silahScaleTransform.localScale);
 
     }
     private void FixedUpdate()
