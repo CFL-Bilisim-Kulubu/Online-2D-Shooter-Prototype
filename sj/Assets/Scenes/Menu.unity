@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4612.8975, g: 2948.0098, b: 2170.4492, a: 1}
+  m_IndirectSpecularColor: {r: 4564.209, g: 2949.6523, b: 2238.1484, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 251899232}
   - component: {fileID: 251899231}
   m_Layer: 0
-  m_Name: Kontroller
+  m_Name: buton - Kontroller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1261,13 +1261,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1305124567}
-  m_Father: {fileID: 5824981167463559776}
-  m_RootOrder: 3
+  m_Father: {fileID: 1320369599}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 260, y: 390}
-  m_SizeDelta: {x: 300, y: 85}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251899231
 MonoBehaviour:
@@ -3277,7 +3277,7 @@ GameObject:
   - component: {fileID: 884214614}
   - component: {fileID: 884214613}
   m_Layer: 0
-  m_Name: Ayarlar
+  m_Name: buton - Ayarlar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3296,13 +3296,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 273525265}
-  m_Father: {fileID: 5824981167463559776}
-  m_RootOrder: 5
+  m_Father: {fileID: 1320369599}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 260, y: 280}
-  m_SizeDelta: {x: 300, y: 85}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884214613
 MonoBehaviour:
@@ -4716,6 +4716,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305124566}
   m_CullTransparentMesh: 0
+--- !u!1 &1320369598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1320369599}
+  - component: {fileID: 1320369600}
+  m_Layer: 0
+  m_Name: Butonlar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1320369599
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320369598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5824981166776804827}
+  - {fileID: 1356657312}
+  - {fileID: 251899230}
+  - {fileID: 884214612}
+  - {fileID: 5824981166466308779}
+  m_Father: {fileID: 5824981167463559776}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 350, y: 350}
+  m_SizeDelta: {x: 475, y: 540}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1320369600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320369598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1001 &1350142858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4791,7 +4859,7 @@ GameObject:
   - component: {fileID: 1356657314}
   - component: {fileID: 1356657313}
   m_Layer: 0
-  m_Name: Karakter Ayarla
+  m_Name: buton - Karakter Ayarla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4810,13 +4878,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 196295849}
-  m_Father: {fileID: 5824981167463559776}
-  m_RootOrder: 2
+  m_Father: {fileID: 1320369599}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 315, y: 500}
-  m_SizeDelta: {x: 410, y: 85}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1356657313
 MonoBehaviour:
@@ -8202,7 +8270,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.95
+  m_fontSize: 60
   m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11868,7 +11936,7 @@ GameObject:
   - component: {fileID: 5824981166466308776}
   - component: {fileID: 5824981166466308780}
   m_Layer: 0
-  m_Name: "Oyundan \xC7\u0131k"
+  m_Name: "buton - Oyundan \xC7\u0131k"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11887,13 +11955,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5824981165713366358}
-  m_Father: {fileID: 5824981167463559776}
+  m_Father: {fileID: 1320369599}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 260, y: 170}
-  m_SizeDelta: {x: 300, y: 85}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5824981166466308780
 MonoBehaviour:
@@ -13725,7 +13793,7 @@ GameObject:
   - component: {fileID: 5824981166776804825}
   - component: {fileID: 5824981166776804824}
   m_Layer: 0
-  m_Name: Oyna
+  m_Name: buton - Oyna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13744,13 +13812,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5824981167181285266}
-  m_Father: {fileID: 5824981167463559776}
-  m_RootOrder: 1
+  m_Father: {fileID: 1320369599}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 260, y: 610}
-  m_SizeDelta: {x: 300, y: 85}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5824981166776804838
 CanvasRenderer:
@@ -15776,11 +15844,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5824981165613525345}
-  - {fileID: 5824981166776804827}
-  - {fileID: 1356657312}
-  - {fileID: 251899230}
-  - {fileID: 5824981166466308779}
-  - {fileID: 884214612}
+  - {fileID: 1320369599}
   m_Father: {fileID: 5824981166401972434}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
