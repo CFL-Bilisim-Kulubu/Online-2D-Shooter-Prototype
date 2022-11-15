@@ -55,7 +55,6 @@ MonoBehaviour:
   alan: 30
   yercekimiKatsayisi: 0.001
   silahAd: "K\xFCme Bombas\u0131"
-  yercekimi: 1
   t: {fileID: 6813897988933216381}
   s: {fileID: 0}
 --- !u!114 &2686512407731250353
