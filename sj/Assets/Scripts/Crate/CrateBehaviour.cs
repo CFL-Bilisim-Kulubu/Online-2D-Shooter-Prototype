@@ -7,6 +7,7 @@ public class CrateBehaviour : Photon.Bolt.EntityBehaviour<ICrate>
     [SerializeField] private Rigidbody rb;
     [SerializeField] private int destroyTime,item;
     [SerializeField] private int[] itemVariety;
+    [SerializeField] private float teleportTime = 5f,positionLerpSpeed = 2f;
     private void Awake()
     {
         item = itemVariety[Random.Range(0,itemVariety.Length)];
@@ -18,15 +19,22 @@ public class CrateBehaviour : Photon.Bolt.EntityBehaviour<ICrate>
         {
             t.position = new Vector3(transform.position.x, transform.position.y, 0);
             state.Velocity = rb.velocity;
-            state.Rotation = t.rotation;
+            state.Rotation = transform.rotation;
             state.Position = new Vector3(t.position.x, t.position.y, 0);
         }
+    }
+    private void Update()
+    {
+        if (entity.IsOwner)
+            return;
+
+
+        rb.velocity = state.Velocity;
+        t.rotation = state.Rotation;
+        if (Vector3.Distance(state.Position, rb.position) > teleportTime)
+            rb.MovePosition(state.Position);
         else
-        {
-            rb.velocity = state.Velocity;
-            t.rotation = state.Rotation;
-            t.position = new Vector3(state.Position.x, state.Position.y, 0);
-        }
+            rb.MovePosition(Vector3.Slerp(rb.position, state.Position, positionLerpSpeed * Time.fixedDeltaTime));
     }
     private void OnTriggerEnter(Collider other)
     {
