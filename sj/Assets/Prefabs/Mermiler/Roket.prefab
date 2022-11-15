@@ -53,9 +53,8 @@ MonoBehaviour:
   hasar: 900
   yokolmaSuresi: 2
   alan: 20
-  yercekimiKatsayisi: 0.001
+  yercekimiKatsayisi: 0.0005
   silahAd: Roket Atar
-  yercekimi: 0
   t: {fileID: 1108411468336604261}
   s: {fileID: 0}
 --- !u!65 &6511140970210849060

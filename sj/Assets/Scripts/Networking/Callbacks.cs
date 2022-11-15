@@ -34,6 +34,10 @@ public class Callbacks : GlobalEventListener
             Debug.Log("On Die event çağırılma hatası! \nHata:" + e);
         }
     }
+    public override void OnEvent(VisualisePlayer evnt)
+    {
+        FindObjectOfType<CameraMultiTarget>().SetTargets(GameObject.FindGameObjectsWithTag("Player"));
+    }
     public void Spawn(int team)
     {
         if (!spawnArea) spawnArea = GameObject.FindGameObjectWithTag("Spawn Area").GetComponent<BoxCollider>();

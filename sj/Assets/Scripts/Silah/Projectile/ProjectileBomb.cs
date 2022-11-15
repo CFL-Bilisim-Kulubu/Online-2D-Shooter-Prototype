@@ -4,9 +4,9 @@ using UnityEngine;
 public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
 {
     [SerializeField] private GameObject debugObject,patlamaInstance;
-    [SerializeField] private float hiz, hasar, yokolmaSuresi,alan, yercekimiKatsayisi;
+    [SerializeField] private float hiz, hasar, yokolmaSuresi,alan;
+    [SerializeField] [Tooltip("Yerçekimini kapatmak için 0 yapýn")] private float yercekimiKatsayisi;
     [SerializeField] private string silahAd;
-    [SerializeField] private bool yercekimi;
     private float yc;
     private int takým;
     [SerializeField] private Transform t;
@@ -25,7 +25,8 @@ public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
     }
     public override void SimulateOwner()
     {
-        state.Position = t.position += t.right * hiz;
+        yc += yercekimiKatsayisi;
+        state.Position = t.position += t.right * hiz -Vector3.up * yc;
 
         RaycastHit hit;
 #if UNITY_EDITOR
@@ -41,18 +42,10 @@ public class ProjectileBomb : Photon.Bolt.EntityBehaviour<IMermi>
     }
     private void Update()
     {
-        if (!entity.IsOwner)
-        {
-            t.position = state.Position;
-        }
-        else
-        {
-            if (yercekimi)
-            {
-                yc += yercekimiKatsayisi;
-                t.position += new Vector3(0, -yc, 0);
-            }
-        }
+        if (entity.IsOwner)
+            return;
+        t.position = state.Position;
+        
     }
     private void OnTriggerEnter(Collider other)
     {
