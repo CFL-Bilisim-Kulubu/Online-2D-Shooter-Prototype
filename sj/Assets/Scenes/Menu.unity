@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4612.913, g: 2948.0059, b: 2170.4766, a: 1}
+  m_IndirectSpecularColor: {r: 4607.9795, g: 2944.6309, b: 2168.5781, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5620,6 +5620,7 @@ MonoBehaviour:
   - TDM_MermerHarita
   - BB_MermerHarita
   - AGDM_MermerHarita
+  - CR_MermerMeydan
   serverList: {fileID: 5824981165878533403}
   buttonPrefab: {fileID: 45523938744883559, guid: 092b799373d6ec94296c653451026b52, type: 3}
   refreshTime: 3
@@ -8936,6 +8937,8 @@ MonoBehaviour:
     - m_Text: Mermer Harita Boss Battle
       m_Image: {fileID: 0}
     - m_Text: "Mermer Harita Serbest Silahl\u0131 \xD6l\xFCm Sava\u015F\u0131"
+      m_Image: {fileID: 0}
+    - m_Text: "Mermer Meydan Bomba Ya\u011Fmuru"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

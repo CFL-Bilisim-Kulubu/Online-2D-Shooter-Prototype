@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mermi: {fileID: 3145006510660348587, guid: b8f2aaaba2c34ea4387ae49f60c36276, type: 3}
   MermiSpawn: {x: 0.55, y: 0.09, z: 0}
-  MaksimumMermi: 1
-  "Ate\u015FS\xFCresi": 0
+  MaksimumMermi: 500
+  "Ate\u015FS\xFCresi": 0.01
   "\u015Earj\xF6rYenilemeS\xFCresi": 5
   mermiTipi: 4
+  "mermiSay\u0131s\u0131": 500
   silahSayi: 7
