@@ -2,6 +2,8 @@
 
 Oyun ikili çatışmanın online versiyonunu yapma fikriyle yapıldı ve amacım hızlıca oyunu prototipleyip arkadaşlarımla oynamak olduğundan kötü bir kod tabanı var ama fikir verebilecek bir proje olduğunu düşünüyorum.
 
+### Oyundaki silah modelleri para ile aldığım bir asset olduğumdan sildim, lütfen kendi modellerinizi koyun ve korsan asset dağıtımına yardımcı olmayınız !
+
 Uzun bir süre önce geliştirdiğim bir proje ve bu projeyle uğraşırken OOP nedir, git nedir vs. hiç bilmiyordum...
 Photon Bolt Networking ile geliştirdiğim bu projeyi belki üç beş kod çalarsınız ya da build alıp arkadaşlarınızla oynarsınız diye yükledim, çok gelecek vadeden bir proje tabanına sahip olduğunu düşünmüyorum.
 
