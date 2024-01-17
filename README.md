@@ -1,5 +1,10 @@
 # Online Platformer Prototype
 
+[Gameplay 1](https://www.youtube.com/watch?v=693nVbxl-Dg&t=32s)
+[Gameplay 2](https://www.youtube.com/watch?v=tJabF70chD4)
+[Gameplay 3](https://www.youtube.com/watch?v=K1P32uuopmA&t=217s)
+
+
 Oyun ikili çatışmanın online versiyonunu yapma fikriyle yapıldı ve amacım hızlıca oyunu prototipleyip arkadaşlarımla oynamak olduğundan kötü bir kod tabanı var ama fikir verebilecek bir proje olduğunu düşünüyorum.
 
 ### Oyundaki silah modelleri para ile aldığım bir asset olduğumdan sildim, lütfen kendi modellerinizi koyun ve korsan asset dağıtımına yardımcı olmayınız !
